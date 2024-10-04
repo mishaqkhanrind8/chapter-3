@@ -1,0 +1,44 @@
+body{background-color: lightblue;
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: larger;
+font-style: italic;
+font-weight:500px;
+font-variant: normal;
+letter-spacing: 2px;
+white-space: 2px;
+line-height: 1;
+color:black}
+h1{font-size:xx larger;
+    color:deeppink;
+text-shadow: 4px 4px 2px blue;
+text-transform: capitalize;
+letter-spacing: 3px;
+word-spacing: 2px;}
+h2,h3{color: blue;
+font-size: larger;
+letter-spacing: 3px;
+text-transform: capitalize;
+word-spacing: 2px;
+}p{color: black;
+font-size: medium;
+letter-spacing: 2px;
+word-spacing: 2px;
+text-indent: 50px;}
+.margin1{border: 2px ;
+width: 500px;
+margin-top: 40px;
+margin-right: 80px;
+margin-left: 80px;
+margin-bottom: 40px;}
+margin-auto{margin: auto;}
+.margin2{ border:2px;
+width:750px;
+margin: 40px auto;}
+fieldset{border: 2px;width: 670px;
+    margin: auto;}.margin3{border: 2px;
+    width: 600px;
+margin: auto;padding: ;}.margin4{border:2px solid;
+width: 630px;
+margin:30px 500px;padding: 20px 50px;}.margin5{border:2px;
+width: 300px;
+margin:20px 800px;}

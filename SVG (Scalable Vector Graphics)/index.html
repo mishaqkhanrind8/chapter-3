@@ -1,0 +1,889 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SVG </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link href="../../Bootstrap/bootstrap-5.3.3-dist/css/bootstrap-grid.css" rel="stylesheet">
+    <link href="../../Bootstrap/bootstrap-5.3.3-examples/navbar-fixed/navbar-fixed.css">
+  <link href="../../Bootstrap/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+  <style>
+    body{background-color: rgba(138, 86, 118, 0.2);
+    color: black;}
+    h1, h2, h3{ color: blue;
+    text-transform: capitalize;;}
+</style>
+    <script src="../../Bootstrap/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+</head>
+  <body>
+<div class="container-fluid">
+<h1 class="text-center">HTML SVG Graphics</h1>
+<h2>svg (scalable vector graphics)</h2>
+<p>SVG defines vector-based graphics in XML, which can be directly embedded in HTML pages.
+
+SVG graphics are scalable, and do not lose any quality if they are zoomed or resized:<br><br>
+
+SVG is supported by all major browsers.</p>
+
+<h2>What is SVG? </h2>
+
+<ul class="ul">
+<li>SVG stands for Scalable Vector Graphics</li>
+<li>SVG is used to define vector-based graphics for the Web</li>
+<li>SVG defines graphics in XML format</li>
+<li>Each element and attribute in SVG files can be animated</li>
+<li>SVG is a W3C recommendation</li>
+<li>SVG integrates with other standards, such as CSS, DOM, XSL and JavaScript</li>
+</ul>
+<h2>The &lt;svg&gt; Element</h2>
+<p>The HTML &lt;svg&gt; element is a container for SVG graphics. SVG has several methods for drawing paths, 
+  rectangles, circles, polygons, text, and much more.</p>
+  
+  <h2>SVG Circle</h2>
+  
+  <svg width="100" height="100">
+    <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+  </svg>
+
+  <svg width="100" height="100">
+    <circle cx="50" cy="50" r="40" stroke="blue" stroke-width="4" fill="pink" />
+  </svg>
+
+  <svg width="100" height="100">
+    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="4" fill="gray" />
+  </svg>
+
+<h2>SVG Rectangle</h2>
+
+<svg width="400" height="120">
+  <rect x="10" y="10" width="200" height="100" stroke="red" stroke-width="6" fill="blue" />
+</svg>
+
+<svg width="400" height="120">
+  <rect x="10" y="10" width="200" height="100" stroke="black" stroke-width="6" fill="gray" />
+</svg>
+
+<h2>SVG Rectangle with Opacity and Rounded Corners</h2>
+
+<svg width="400" height="180">
+  <rect x="50" y="20" rx="20" ry="20" width="150" height="150"
+  style="fill:red;stroke:black;stroke-width:5;opacity:0.5" />
+</svg>
+
+<svg width="400" height="180">
+  <rect x="50" y="20" rx="20" ry="20" width="150" height="150"
+  style="fill:green;stroke:blue;stroke-width:5;opacity:0.5" />
+</svg>
+
+<h2>SVG Star</h2>
+
+<svg width="300" height="200">
+<polygon points="100,10 40,198 190,78 10,78 160,198"
+  style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" />
+</svg>
+
+<svg width="300" height="200">
+  <polygon points="100,10 40,198 190,78 10,78 160,198"
+  style="fill:deeppink;stroke:aqua;stroke-width:5;fill-rule:evenodd;" />
+</svg>
+
+<svg width="300" height="200">
+  <polygon points="100,10 40,198 190,78 10,78 160,198"
+  style="fill:blue;stroke:green;stroke-width:5;fill-rule:evenodd;" />
+</svg>
+
+<h2>SVG Gradient Ellipse and Text</h2>
+
+<svg height="130" width="500">
+  <defs>
+    <linearGradient id="grad1">
+      <stop offset="0%" stop-color="yellow" />
+      <stop offset="100%" stop-color="red" />
+    </linearGradient>
+  </defs>
+  <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+  <text fill="#ffffff" font-size="35" font-family="Verdana" x="45" y="86">Baloch</text>
+  Sorry, your browser does not support inline SVG.
+</svg>
+
+<h2>Differences Between SVG and Canvas</h2>
+
+<p>SVG is a language for describing 2D graphics in XML, while Canvas draws 2D graphics, on the fly
+   (with JavaScript). SVG is XML based, which means that every element is available within the SVG DOM.
+    You can attach JavaScript event handlers to SVG graphics. In SVG, each drawn shape is remembered as
+     an object. If attributes of an SVG object are changed, the browser can automatically re-render the shape.
+  Canvas is rendered pixel by pixel. In canvas, once the graphic is drawn, it is forgotten by the browser.
+   If its position should be changed, the entire scene needs to be redrawn, including any objects that
+    might have been covered by the graphic.</p>
+
+  <h2>Comparison of SVG and Canvas</h2>
+  <div class="row"><div class="col-md-6">
+    <h4>SVG</h4>
+    <p><ul><li>Resolution independent</li>
+      <li>Support for event handlers</li>
+      <li>Good text rendering capabilities</li>
+      <li>Slow rendering if complex</li>
+      <li>Not suited for game applications</li>
+    </ul></p>
+  </div>
+<div class="col-md-6">
+  <h4>Canvas</h4>
+  <ul><li>Resolution dependent</li>
+  <li>No support for event handlers</li>
+  <li>Poor text rendering capabilities</li>
+  <li>You can save the resulting image as .png or .jpg</li>
+  <li>Well suited for graphic-intensive games</li>
+  </ul></div></div>
+<h2>What you should already know</h2>
+
+<ul>Before you continue, you should have a basic understanding of the following:
+  <li>HTML</li>
+  <li>Basic XML</li>
+  If you want to study these subjects first, find the tutorials on our Home page.</ul>
+
+<h2>SVG Advantages</h2>
+
+<p>Advantages of using SVG over other image formats (like JPEG and GIF) are:</p>
+<ul><li>SVG images can be created and edited with any text editor</li>
+  <li>SVG images can be searched, indexed, scripted, and compressed</li>
+  <li>SVG images are scalable</li>
+  <li>SVG images can be printed with high quality at any resolution</li>
+  <li>SVG images are zoomable</li>
+  <li>SVG graphics do NOT lose any quality if they are zoomed or resized</li>
+  <li>SVG is an open standard</li>
+  <li>SVG files are pure XML</li>
+</ul>
+
+<h2>How does it Work?</h2>
+
+<p>SVG has elements and attributes for rectangles, circles, ellipses, lines, polygons, curves, and more.
+
+  SVG also supports filter and blur effects, gradients, rotations, animations, interactivity with JavaScript,
+   and more.
+  A simple SVG document consists of the &lt;svg&gt; root element and several basic shape elements that will
+   build a graphic together.</p>
+
+   <h2>Creating SVG Images</h2>
+
+   <p>SVG images can be created with any text editor, or with a drawing program, like Inkscape.
+
+    For you to learn the concept and basics of SVG, this tutorial will just use plain text to teach you SVG.
+    
+    The next page shows how to embed an SVG image directly into an HTML page!</p>
+
+<h4>SVG Code explanation:</h4>
+
+<ul>
+  <li>Start with the &lt;svg&gt; root element</li>
+  <li>The width and height of the SVG image is defined with the width and height attributes</li>
+  <li>Since SVG is an XML dialect, always bind the namespace correctly with the xmlns attribute</li>
+  <li>The namespace "http://www.w3.org/2000/svg" identifies SVG elements inside an HTML document</li>
+  <li>The &lt;circle&gt; element is used to draw a circle</li>
+  <li>The cx and cy attributes define the x and y coordinates of the center of the circle. If omitted,
+     the circle's center is set to (0, 0)</li>
+  <li>The r attribute defines the radius of the circle</li>
+  <li>The stroke and stroke-width attributes control how the outline of a shape appears. We set the outline
+     of the circle to a 4px green "border"</li>
+  <li>The fill attribute refers to the color inside the circle. We set the fill color to yellow</li>
+  <li>The closing &lt;/svg&gt; tag closes the SVG image</li>
+  </ul>
+
+  <div class="ms-5 gy-5 bg-warning">
+  <p class="mx-5">  <strong>Note!</strong> Since SVG is written in XML, remember this:</p>
+  <ul class="ul ms-5"><li>All elements must be properly closed</li>
+    <li>XML is case-sensitive, so write all SVG elements and attributes in same case. We prefer lower-case</li>
+    <li>Place all attribute values in SVG inside quotes (even if they are numbers)</li>
+  </ul>
+  </div>
+
+<h2>Another SVG Example</h2>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<svg class="float-md-end" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="green" />
+  <circle cx="150" cy="100" r="70" fill="yellow" />
+  <text x="150" y="115" font-size="50" text-anchor="middle" fill="red">BNG</text>
+</svg>
+
+<h3>SVG Code explanation:</h3>
+<ul><li>Start with the &lt;svg&gt; root element, define the width and height, and proper namespace</li>
+  <li>The &lt;rect&gt; element is used to draw a rectangle</li>
+  <li>The width and height of the rectangle is set to 100% of the width/height of the &lt;svg&gt; element</li>
+  <li>Set the fill color of the rectangle to green</li>
+  <li>The &lt;circle&gt; element is used to draw a circle</li>
+  <li>The cx and cy attributes define the x and y coordinates of the center of the circle</li>
+  <li>The r attribute defines the radius of the circle</li>
+  <li>We set the fill color of the circle to yellow</li>
+  <li>The &lt;text&gt; element is used to draw a text</li>
+  <li>The x and y attributes define the x and y coordinates of the center of the text</li>
+  <li>The font-size attribute defines the font size of the text</li>
+  <li>The text-anchor attribute defines where we want the midpoint (of the text) to be</li>
+  <li>The fill attribute defines the color of the text</li>
+  <li>Write "SVG" as the text to show</li>
+  <li>Close the SVG image with </svg></li>
+</ul>
+
+<h2>SVG <small>&lt;rect&gt;</small> </h2>
+
+<h3>SVG Shapes</h3>
+
+<p>SVG has some predefined shape elements that can be used by developers:</p>
+<ul><li>Rectangle &lt;rect&gt;</li>
+  <li>Circle &lt;circle&gt;</li>
+  <li>Ellipse &lt;ellipse&gt;</li>
+<li>Line &lt;line&gt;</li>
+<li>Polyline &lt;polyline&gt;</li>
+<li>Polygon &lt;polygon&gt;</li>
+<li>Path &lt;path&gt;</li></ul>
+
+<p>The following chapters will explain each element, starting with the &lt;rect&gt; element.</p>
+
+<h1 class="text-center my-3">SVG Rectangle</h1> 
+
+<p>The &lt;rect&gt; element is used to create a rectangle and variations of a rectangle shape.  The 
+  &lt;rect&gt; element has six basic attributes to position and shape the rectangle:</p>
+
+  <table class="table table-striped">
+    <thead><tr><th scope="col">attribute</th>
+      <th scope="col">description</th>
+   </tr></thead>
+   <tbody><tr scope="row"><td>width</td>
+  <td>Required. The width of the rectangle</td></tr>
+<tr><td>height</td>
+<td>Required. The height of the rectangle</td></tr>
+<tr><td>x</td>
+  <td>The x-position for the top-left corner of the rectangle</td></tr>
+  <tr><td>y</td>
+  <td>	The y-position for the top-left corner of the rectangle</td></tr>
+  <tr><td>rx</td>
+    <td>The x radius of the corners of the rectangle (used to round the corners). Default is 0</td></tr>
+<tr><td>ry</td>
+  <td>The y radius of the corners of the rectangle (used to round the corners). Default is 0</td></tr>
+  </tbody>
+  </table>
+<h2>An SVG Rectangle</h2>
+
+<svg class="float-md-end" width="300" height="130" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="100" x="10" y="10" rx="20" ry="20" fill="blue" />
+</svg>
+
+<h4>code explanation</h4>
+<ul><li>The width and height attributes of the <rect> element define the height and the width of the
+   rectangle</li>
+  <li>The x and y attributes defines the x- and y-position of the top-left corner of the rectangle
+     (x="10" places the rectangle 10px from the left margin and y="10" places the rectangle 10px from 
+     the top margin) in the SVG canvas</li>
+  <li>The rx and ry attributes defines the radius of the corners of the rectangle</li>
+  <li>The fill attribute defines the fill color of the rectangle</li>
+ </ul>
+
+<h2>A Rectangle With Border</h2>
+
+<p>Let's look at another example that contains some new attributes:
+  <svg class="float-md-end me-3" width="520" height="230" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="200" x="10" y="10" style="fill:rgb(0,0,255);stroke-width:3;stroke:red" />
+  </svg>
+ <br><br><br> Here is the SVG code:
+</p>
+<h4>Code explanation:</h4>
+<ul><li>The style attribute is used to define CSS properties for the rectangle</li>
+  <li>The CSS fill property defines the fill color of the rectangle</li>
+  <li>The CSS stroke-width property defines the width of the border of the rectangle</li>
+<li>The CSS stroke property defines the color of the border of the rectangle</li></ul>
+
+<h2>A Rectangle With Opacity</h2>
+
+<p>Let's look at another example that contains some new attributes:
+  <svg class="float-md-start" width="300" height="170" xmlns="http://www.w3.org/2000/svg">
+    <rect width="150" height="150" x="10" y="10"
+    style="fill:blue;stroke:pink;stroke-width:5;fill-opacity:0.1;stroke-opacity:0.9" />
+  </svg>
+  <svg class="float-md-end" width="300" height="170" xmlns="http://www.w3.org/2000/svg">
+    <rect width="150" height="150" x="10" y="10"
+    style="fill:blue;stroke:pink;stroke-width:5;opacity:0.5" />
+  </svg>
+  <br><br>Here is the SVG code:
+</p>
+
+<h4>Code explanation:</h4>
+<ul><li>The CSS fill-opacity property defines the opacity of the fill color (legal range: 0 to 1)</li>
+  <li>The CSS stroke-opacity property defines the opacity of the stroke color (legal range: 0 to 1)
+  </li>
+</ul>
+
+<h2>A Rectangle With Rounded Corners</h2>
+<p>Last example, create a rectangle with rounded corners:
+  <br>
+  <svg class="float-md-end" width="300" height="170" xmlns="http://www.w3.org/2000/svg">
+    <rect width="150" height="150" x="10" y="10" rx="20" ry="20"
+    style="fill:red;stroke:black;stroke-width:5;opacity:0.5" />
+  </svg> <br><br><br>
+  Here is the SVG code:
+</p>
+
+<h1 class="text-center my-3">SVG Circle</h1>
+
+<p>the <code>&lt;circle&gt;</code> element is used to create a circle. <br> 
+the <code>&lt;circle&gt;</code> element has three basic attributes to position and set the size of the circle:
+</p>
+
+<div class="row">
+
+  <div class="col-md-8 mx-auto">
+
+    <table class="table table-striped">
+  <thead>
+    <tr><th scope="col">attributes</th>
+  <th scope="col">description</th></tr>
+  </thead>
+<tbody><tr scope="row"><td>r</td> 
+<td>required. the radius of the circle </td></tr>
+<tr><td>cx</td> <td>the x-axis center of the circle. default is 0</td></tr>
+<tr><td>cy</td><td>the y-axis center of the circle. default is 0</td></tr>
+</tbody></table></div>
+</div>
+
+<h4>example </h4>
+<svg class="float-md-end" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+  <circle r="45" cx="50" cy="50" fill="red" />
+</svg>
+
+<svg class="float-md-end" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+  <circle r="45" cx="50" cy="50" fill="green" />
+</svg>
+
+<svg class="float-md-end" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+  <circle r="45" cx="50" cy="50" fill="yellow" />
+</svg>
+
+<h4>code explanation</h4>
+<ul class="ul">
+  <li>The r attribute defines the radius of the circle</li>
+  <li>The cx and cy attributes define the x- and y-axes center of the circle. If they are omitted, the
+    circle's center is set to (0,0)
+  </li>
+  <li>The fill attribute defines the color of the circle</li>
+</ul>
+
+<h2>An SVG Circle with Border</h2>
+
+<p>The following example creates a circle with border:</p>
+
+<svg class="float-md-end" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+  <circle r="45" cx="50" cy="50" fill="green" stroke="black" stroke-width="3" />
+</svg>
+
+<svg class="float-md-end" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+  <circle r="45" cx="50" cy="50" fill="yellow" stroke="black" stroke-width="3" />
+</svg>
+
+<svg class="float-md-end" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+  <circle r="45" cx="50" cy="50" fill="red" stroke="black" stroke-width="3" />
+</svg>
+
+<h4>code explanation</h4>
+
+<ul><li>The stroke attribute defines the color of the border around the circle</li>
+  <li>The stroke-width attribute defines the width of the border around the circle</li></ul>
+
+<h3>An SVG Circle with Opacity</h3>
+
+<p>The following example creates a circle with opacity:</p>
+
+<h4>example</h4>
+
+<svg class="float-md-end" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+  <circle r="45" cx="50" cy="50" fill="green" stroke="black" stroke-width="3" opacity="0.5" />
+</svg>
+
+<svg class="float-md-end" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+  <circle r="45" cx="50" cy="50" fill="yellow" stroke="green" stroke-width="3" opacity="0.5" />
+</svg>
+
+<svg class="float-md-end" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+  <circle r="45" cx="50" cy="50" fill="red" stroke="green" stroke-width="3" opacity="0.5" />
+</svg>
+
+<h1 class="text-center my-3">SVG ellipse</h1>
+
+<p>The &lt;ellipse&gt; element is used to create an ellipse.
+
+  An ellipse is closely related to a circle. The difference is that an ellipse has an x and a y radius that 
+  differs from each other, while a circle has equal x and y radius.
+  
+  The &lt;ellipse&gt; element has four basic attributes to position and set the size of the ellipse:</p>
+
+  <div class="row">
+  <div class="col-md-8 mx-auto">
+
+    <table class="table table-striped">
+<thead><tr><th scope="col-">attribute</th>
+<th scope="col">description</th></tr></thead>
+<tbody><tr scope="row">
+  <td>rx</td>
+  <td>Required. The x radius of the ellipse</td>
+</tr>
+<tr><td>ry</td>
+<td>	Required. The y radius of the ellipse</td></tr>
+<tr><td>cx</td>
+<td>	The x-axis center of the ellipse. Default is 0</td></tr>
+<tr><td>cy</td>
+<td>The y-axis center of the ellipse. Default is 0</td></tr></tbody>
+</table></div></div>
+
+<h4>example</h4>
+
+<svg height="140" width="390" xmlns="http://www.w3.org/2000/svg">
+  <ellipse rx="100" ry="50" cx="120" cy="80"
+  style="fill:green;stroke:black;stroke-width:3" />
+</svg>
+
+<svg height="140" width="390" xmlns="http://www.w3.org/2000/svg">
+  <ellipse rx="100" ry="50" cx="120" cy="80"
+  style="fill:yellow;stroke:green;stroke-width:3" />
+</svg>
+
+<svg height="140" width="390" xmlns="http://www.w3.org/2000/svg">
+  <ellipse rx="100" ry="50" cx="120" cy="80"
+  style="fill:red;stroke:green;stroke-width:3" />
+</svg>
+
+<h4>code explanation</h4>
+
+<ul class="unordered-list">
+  <li>The rx attribute defines the x (horizontal) radius</li>
+  <li>The ry attribute defines the y (vertical) radius</li>
+  <li>The cx attribute defines the x-axis center of the ellipse</li>
+  <li>The cy attribute defines the y-axis center of the ellipse
+  </li>
+</ul>
+
+
+<h2>Three and two Ellipses</h2>
+
+<p>The following example creates three and two ellipses on top of each other:</p>
+
+<h4>example</h4>
+
+<svg class="float-md-end" height="150" width="500" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="240" cy="100" rx="220" ry="30" fill="purple" />
+  <ellipse cx="220" cy="70" rx="190" ry="20" fill="lime" />
+  <ellipse cx="210" cy="45" rx="170" ry="15" fill="yellow" />
+</svg>
+
+<svg class="float-md-end" height="100" width="500" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="240" cy="50" rx="220" ry="30" fill="yellow" />
+  <ellipse cx="220" cy="50" rx="190" ry="20" fill="white" />
+</svg>
+<br><br><br><br>
+<hr>
+<h1 class="text-center my-3">SVG line</h1>
+
+<p>The &lt;line&gt; element is used to create a line.
+
+  The &lt;line&gt; element creates a line between the start position (x1,y1) and the end position (x2,y2).
+  
+  The &lt;line&gt; element has four basic attributes to position and set the length of the line:</p>
+
+ <div class="row">
+   <div class="col-md-8 mx-auto">
+    <table class="table"><thead><tr><th scope="col">attribute</th>
+      <th>description</th></tr></thead>
+    
+    <tbody>
+      <tr scope="row"><td>x1</td>
+      <td>	The start of the line on the x-axis</td></tr>
+    <tr><td>y1</td>
+      <td>	The start of the line on the y-axis</td></tr>
+      <tr><td>x2</td>
+        <td>The end of the line on the x-axis</td></tr>
+        <tr><td>y2</td>
+        <td>	The end of the line on the y-axis</td></tr>
+    </tbody></table></div></div>
+  <div class="row">
+    <div class="col-md-6">
+    <h4>example</h4>
+
+    <svg height="200" width="300" xmlns="http://www.w3.org/2000/svg">
+      <line x1="20" y1="20" x2="300" y2="200" style="stroke:blue;stroke-width:4" />
+    </svg>
+<h4>code explanation</h4>
+<ul class="unordered-list">
+  <li>The x1 and y1 attributes define the start of the line (0,0)</li>
+  <li>The x2 and y2 attributes define the end of the line (300,200)</li>
+  <li></li>
+</ul>
+</div>
+<div class="col-md-6 mt-5">
+    <h4 class="mb-4">exmaple of horizontal</h4>
+
+    <svg height="50" width="300" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="10" x2="250" y2="10" style="stroke:red;stroke-width:12" />
+    </svg>
+
+<h4>code explanation</h4>
+
+<ul class="unordered-list">
+  <li>The x1 and y1 attributes define the start of the line (0,10)</li>
+  <li>The x2 and y2 attributes define the end of the line (250,10)</li></ul></div></div>
+
+<div class="col-md-8 mx-auto">  <h2>vertical line</h2>
+  
+  <p>The following example creates a thick vertical line from position (0,0) to (0,200):</p>
+
+  <h4>example</h4>
+
+  <svg height="210" width="30" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="0" x2="0" y2="200" style="stroke:green;stroke-width:14" />
+  </svg>
+<span class="div float-md-end my-5"><strong class="h4">code explanation</strong> 
+  <ul class="unordered-lsit">
+  <li>The x1 and y1 attributes define the start of the line (0,0)</li>
+<li>The x2 and y2 attributes define the end of the line (0,200)
+</li></ul></span></div>
+
+<h1 class="text-center my-3">SVG polygon</h1>
+
+<p class="col-md-8 mx-auto">The &lt;polygon&gt; element is used to create a graphic that contains at least three sides.
+
+  Polygons are made of straight lines, and the shape is "closed" (it automatically connects the last point
+   with the first).
+  
+  The &lt;polygon&gt; element has one basic attribute that defines the points of the polygon:</p>
+<div class="col-md-8 mx-auto">
+<table class="table table-striped">
+  <thead><tr><th scope="col">attribute</th>
+  <th>description</th></tr></thead>
+<tbody><tr scope="row"><td>points</td>
+<td>Required. The list of points of the polygon. Each point must contain an x coordinate and a y coordinate</td></tr></tbody>
+</table></div>
+
+<h4>Exmaple of <small class="h6">A Polygon With Three Sides</small></h4>
+
+<p>The following example creates a polygon with three sides:</p>
+
+<svg height="220" width="390" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="100,10 150,190 50,190" style="fill:lime;stroke:purple;stroke-width:3" />
+</svg>
+
+<svg height="220" width="390" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="100,10 150,190 50,190" style="fill:aqua;stroke:purple;stroke-width:3" />
+</svg>
+
+<svg height="220" width="390" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="100,10 150,190 50,190" style="fill:green;stroke:purple;stroke-width:3" />
+</svg>
+
+<h4>code explanation</h4>
+<ul class="unordered-list">
+  <li>The points attribute defines the x and y coordinates for each corner of the polygon</li></ul>
+
+  <div class="row">
+<div class="col-md-6 col-lg-4">    <h4>A Polygon With Four Sides</h4>
+
+<svg height="260" width="300" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="220,10 300,210 170,250 123,234" style="fill:lime;stroke:purple;stroke-width:3" />
+</svg>
+</div>
+<div class="col-md-6 col-lg-4">
+
+<h4>A Polygon With Six Sides</h4>
+
+<svg height="280" width="270" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="150,15 258,77 258,202 150,265 42,202 42,77"
+  style="fill:lime;stroke:purple;stroke-width:3" />
+</svg>
+</div>
+<div class="col-md-6 col-lg-4">
+  <h4>A Polygon Star</h4>
+
+  <svg height="210" width="300" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="100,10 40,198 190,78 10,78 160,198"
+    style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" />
+  </svg>
+</div>
+<div class="col-md-6"><h4>Aanother Polygon Star</h4>
+
+  <svg height="210" width="300" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="100,10 40,198 190,78 10,78 160,198"
+    style="fill:lime;stroke:purple;stroke-width:5;" />
+  </svg>
+</div>
+<div class="col-md-6 mt-5">
+  <h4>code explanation</h4>
+<ul> <li>The fill-rule attribute defines the algorithm to use to specify the inside part of a shape</li></ul>
+</div>
+</div>
+
+<h1 class="text-center my-3">SVG polyline </h1>
+
+<p>The &lt;polyline&gt; element is used to create any shape that consists of only straight lines 
+(that is connected at several points).
+The &lt;polyline&gt; element has one basic attribute that defines the points of the polyline:
+</p>
+
+<div class="col-md-8 mx-auto">
+<table class="table table-striped">
+  <thead><tr><th scope="col">attribute</th>
+  <th>description</th></tr></thead>
+<tbody><tr scope="row"><td>points</td>
+<td>Required. The list of points of the polyline. Each point must contain an x coordinate and a y
+ coordinate</td></tr></tbody>
+</table></div>
+
+<h4>Polyline Example</h4>
+
+<svg class="float-md-end" height="210" width="400" xmlns="http://www.w3.org/2000/svg">
+  <polyline points="0,0 50,150 100,75 150,50 200,140 250,140"
+  style="fill:none;stroke:green;stroke-width:3" />
+</svg>
+
+<svg  height="180" width="400" xmlns="http://www.w3.org/2000/svg">
+  <polyline points="0,40 40,40 40,80 80,80 80,120 120,120 120,160"
+  style="fill:yellow;stroke:red;stroke-width:4" />
+</svg>
+
+ <h4>code explanation</h4>
+<ul> <li>The points attribute defines the list of points (pairs of x and y coordinates)
+ required to draw the polyline</li></ul>
+
+<h1 class="text-center my-5"> SVG path </h1>
+
+<p>The <path> element is used to define a path.
+
+Paths are used to create simple or complex shapes combining several straight or curved lines.
+
+The &lt;path&gt; element has one basic attribute that defines the points and other commands of how to draw the path:
+</p>
+
+<div class="col-md-8 mx-auto">
+<table class="table table-striped">
+  <thead><tr><th scope="col">attribute</th>
+  <th>description</th></tr></thead>
+<tbody><tr scope="row"><td>d</td>
+<td>	Required. A set of commands which define the path.
+The following commands are available for path data:<ul> 
+<li>M = moveto (move from one point to another point)</li>
+<li>L = lineto (create a line)</li>
+<li>H = horizontal lineto (create a horizontal line)</li>
+<li>V = vertical lineto (create a vertical line)</li>
+<li>C = curveto (create a curve)</li>
+<li>S = smooth curveto (create a smooth curve)</li>
+<li>Q = quadratic Bézier curve (create a quadratic Bézier curve)</li>
+<li>T = smooth quadratic Bézier curveto (create a smooth quadratic Bézier curve)</li>
+<li>A = elliptical Arc (create a elliptical arc)</li>
+<li>Z = closepath (close the path)</li>
+</ul>
+<strong>Note:</strong> All of the commands above can also be expressed in lower case. Upper case means absolutely
+ positioned, lower case means relatively positioned.</td>
+</tbody>
+</table></div>
+
+<h2>A Simple Path</h2>
+
+<p>The example below defines a path that starts at position 150,5 with a line to position 75,200 then from there,
+ a line to 225,200 and finally closing the path back to 150,5:</p>
+
+<svg height="210" width="400" xmlns="http://www.w3.org/2000/svg">
+  <path d="M150 5 L75 200 L225 200 Z"
+  style="fill:none;stroke:green;stroke-width:3" />
+</svg>
+
+<p> here is a example</p>
+
+<h2>A Bézier Curve</h2>
+
+<p>Bézier curves are used to model smooth curves that can be scaled indefinitely. Generally, the user selects two 
+endpoints and one or two control points. 
+A Bézier curve with one control point is called a quadratic Bézier curve.
+
+The following example creates a quadratic Bézier curve, where A and C are the start and end points, B is the control
+ point:</p>
+
+<svg height="400" width="450" xmlns="http://www.w3.org/2000/svg">
+
+<!-- Draw the paths -->
+<path id="lineAB" d="M 100 350 l 150 -300" stroke="red" stroke-width="4"/>
+<path id="lineBC" d="M 250 50 l 150 300" stroke="red" stroke-width="4"/>
+<path id="lineMID" d="M 175 200 l 150 0" stroke="green" stroke-width="4"/>
+<path id="lineAC" d="M 100 350 q 150 -300 300 0" stroke="blue" stroke-width="4" fill="none"/>
+
+<!-- Mark relevant points -->
+<g stroke="black" stroke-width="3" fill="black">
+<circle id="pointA" cx="100" cy="350" r="4" />
+<circle id="pointB" cx="250" cy="50" r="4" />
+<circle id="pointC" cx="400" cy="350" r="4" />
+</g>
+
+<!-- Label the points -->
+<g font-size="30" font-family="sans-serif" fill="green" text-anchor="middle">
+<text x="100" y="350" dx="-30">A</text>
+<text x="250" y="50" dy="-10">B</text>
+<text x="400" y="350" dx="30">C</text>
+</g>
+
+</svg>
+<p> here is a example</p> <br> <br>
+<p>Complex? YES!!!! Because of the complexity involved in drawing paths it is highly recommended to
+ use an SVG editor to create complex graphics.</p>
+
+<h1 class="text-center my-5">SVG text and tspan</h1>
+
+<h3>SVG text - &lt;text&gt;</h3>
+
+<p>The &lt;text&gt; element is used to define a text.
+
+The &lt;text&gt; element has seven basic attributes to position and rotate the text:</p>
+
+<div class="col-md-8 mx-auto">
+ <table class="table table-striped">
+    <thead><tr><th scope="col">attribute</th>
+      <th scope="col">description</th>
+   </tr></thead>
+   <tbody><tr scope="row"><td>x</td>
+  <td>	The x position of the start of the text. Default is 0</td></tr>
+<td>y</td><td>The y position of the start of the text. Default is 0</td></tr>
+<tr><td>dx</td>
+  <td>The horizontal shift position for text (from previous text position)</td></tr>
+  <tr><td>dy</td>
+  <td>	The vertical shift position for text (from previous text position)</td></tr>
+  <tr><td>rotate</td>
+    <td>The rotation (in degrees) applied to each letter of text</td></tr>
+<tr><td>textLength</td>
+  <td>The width that the text must fit in</td></tr>
+<tr><td>lengthAdjust</td>
+  <td>How the text should be compressed or stretched to fit the width defined by the textLength attribute</td></tr>
+  </tbody>
+  </table>
+</div>
+
+<h4>A Simple Text Example</h4>
+
+<svg height="60" width="400" xmlns="http://www.w3.org/2000/svg">
+  <text x="100" y="30" fill="red">I love Baloch!</text>
+</svg>
+
+<h4>A Text With no Fill</h4>
+
+<svg height="40" width="200" xmlns="http://www.w3.org/2000/svg">
+  <text x="5" y="30" fill="none" stroke="red" font-size="35">I love Baloch!</text>
+</svg>
+
+<h4>A Text With Fill and Stroke</h4>
+
+<svg height="40" width="200" xmlns="http://www.w3.org/2000/svg">
+  <text x="5" y="30" fill="pink" stroke="blue" font-size="35">I love Baloch!</text>
+</svg>
+
+<h4>Rotate Each Letter of Text</h4>
+
+<svg height="40" width="250">
+  <text x="5" y="30" fill="red" font-size="35" rotate="30">I love Baloch!</text>
+</svg>
+
+<h4>Rotate Whole Text</h4>
+
+<p>Rotate the whole text with the transform attribute:</p>
+
+<svg height="100" width="200">
+  <text x="5" y="30" fill="red" font-size="25" transform="rotate(30 20,40)">I love Baloch!</text>
+</svg>
+
+<p>Here is the SVG code:</p>
+
+<h3>SVG text - &lt;tspan&gt;</h3>
+
+<p>The &lt;tspan&gt; element is used to mark up parts of a text (just like the HTML &lt;span&gt; element).
+
+  The &lt;tspan&gt; element must be a child of a &lt;text&gt; element or another &lt;tspan&gt; element.
+  
+  The &lt;tspan&gt; element has six basic attributes to position and rotate the text:</p>
+
+  <div class="col-md-8 mx-auto">
+    <table class="table table-striped">
+       <thead><tr><th scope="col">attribute</th>
+         <th scope="col">description</th>
+      </tr></thead>
+      <tbody><tr scope="row"><td>x</td>
+     <td>Sets a new absolute x position for the start of the text in tspan</td></tr>
+   <td>y</td><td>	Sets a new absolute y position for the start of the text in tspan</td></tr>
+   <tr><td>dx</td>
+     <td>	The horizontal shift position for text in tspan (from previous text position)</td></tr>
+     <tr><td>dy</td>
+     <td>The vertical shift position for text in tspan (from previous text position)</td></tr>
+     <tr><td>rotate</td>
+       <td>The rotation (in degrees) applied to each letter of text in tspan</td></tr>
+   <tr><td>textLength</td>
+     <td>The width that the text in tspan must fit in
+    </td></tr>
+     </tbody>
+     </table>
+   </div>
+
+   <h4>Use of &lt;tspan&gt; Element</h4>
+
+   <svg height="40" width="250" xmlns="http://www.w3.org/2000/svg">
+    <text x="5" y="30" fill="green" font-size="35">I Love
+      <tspan fill="none" stroke="red">baloch</tspan>!
+    </text>
+  </svg>
+
+<p>here is an example </p>
+
+<h1 class="text-center my-3">SVG textpath</h1>
+
+<h3>SVG text &lt;textpath&gt;</h3>
+
+<p>The &lt;textPath&gt; element is used to render a text along the shape of a path.
+
+  The &lt;textPath&gt; element has six basic attributes:</p>
+
+  <div class="col-md-8 mx-auto">
+    <table class="table table-striped">
+       <thead><tr><th scope="col">attribute</th>
+         <th scope="col">description</th>
+      </tr></thead>
+      <tbody><tr scope="row"><td>href</td>
+     <td>The URL to the path to render the text</td></tr>
+   <td>lengthAdjust</td><td>How to compress or stretch the text to fit the width defined by the textLength
+     attribute. Can be spacing|spacingAndGlyphs. Default is spacing</td></tr>
+   <tr><td>method</td>
+     <td>	How to render the glyphs along the path. Can be align|stretch. Default is align</td>	</td></tr>
+     <tr><td>spacing</td>
+     <td>The space between glyphs. Can be auto|exact. Default is exact</td></tr>
+     <tr><td>startOffset</td>
+       <td>How far the beginning of the text should be offset from the beginning of the path. Can be a length,
+         percentage or a number</td></tr>
+   <tr><td>textLength</td>
+     <td>The width of the text along the path. Can be a length, percentage or a number. Default is auto</td></tr>
+     </tbody>
+     </table>
+   </div>
+
+<h4>Text Along a Path</h4>
+
+<svg height="400" width="600" xmlns="http://www.w3.org/2000/svg">
+  <path id="lineAC" d="M 100 336 q 150 -248 295 0" stroke="blue" stroke-width="0" fill="none"/>
+    <text style="fill:red;font-size:25px;">
+    <textPath href="#lineAC" startOffset="75">I love Baloch! I love Baloch!</textPath>
+  </text>
+</svg>
+
+<svg height="350" width="600" xmlns="http://www.w3.org/2000/svg">
+  <path id="lineAC" d="M 100 336 q 150 -248 295 0" stroke="blue" stroke-width="0" fill="none"/>
+  <text style="fill:red;font-size:25px;">
+    <textPath href="#lineAC" textLength="50%" startOffset="75">I love baloch! I love Baloch!</textPath>
+  </text>
+  sorry, your browser not supported inline SVG.
+</svg>
+
+
+
+</div> </body>
+</html>

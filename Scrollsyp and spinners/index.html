@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../Bootstrap/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../Bootstrap/bootstrap-5.3.3-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../../Bootstrap/bootstrap-5.3.3-dist/css/bootstrap-utilities.min.css">
+    <title>scrollspy and spinners</title>
+<style>
+    body{background-color: rgba(138, 86, 118, 0.2);
+    color: black;}
+    h1, h2, h3{ color: blue;
+    text-transform: capitalize;;}
+</style>
+<script src="../../Bootstrap/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+</head>
+  <body class="p-3 m-0 border-0 bd-example m-0 border-0">
+<div class="container-fluid">
+<h1 class="text-center">scrollspy</h1>
+
+<p>Automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is
+currently active in the viewport.</p>
+
+<h2>how it works</h2>
+
+<p>Scrollspy toggles the .active class on anchor (&lt;a&gt;) elements when the element with the id referenced by the anchor’s href
+   is scrolled into view. Scrollspy is best used in conjunction with a Bootstrap nav component or list group, but it will also
+    work with any anchor elements in the current page. Here’s how it works.</p>
+
+<ul class="list-group">
+  <li class="list-item">To start, scrollspy requires two things: a navigation, list group, or a simple set of links, plus a scrollable container.
+     The scrollable container can be the &lt;body&gt; or a custom element with a set height and overflow-y: scroll.</li>
+<li class="list-item">On the scrollable container, add data-bs-spy="scroll" and data-bs-target="#navId" where navId is the unique
+   id of the associated navigation. If there is no focusable element inside the element, be sure to also include a tabindex="0"
+    to ensure keyboard access.</li>
+    <li class="list-item">As you scroll the “spied” container, an .active class is added and removed from anchor links within the 
+      associated navigation. Links must have resolvable id targets, otherwise they’re ignored. For example, a 
+      &lt;a href="#home"&gt;home&lt;/a&gt; must correspond to something in the DOM like &lt;div id="home"&gt;&lt;/div&gt;</li>
+    <li class="list-item">Target elements that are not visible will be ignored. See the Non-visible elements section below.</li>
+    </ul>
+
+    <h3>navbar</h3>
+
+    <p>Scroll the area below the navbar and watch the active class change. Open the dropdown menu and watch the dropdown items
+       be highlighted as well.</p>
+
+<!--example of scrollspy-->
+
+<nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link" href="#scrollspyHeading1">First</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#scrollspyHeading2">Second</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
+        <li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
+  <h4 id="scrollspyHeading1">First heading</h4>
+  <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation
+     link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize
+      the scrolling and highlighting.</p>
+  <h4 id="scrollspyHeading2">Second heading</h4>
+  <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation
+    link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize
+     the scrolling and highlighting.</p>
+  <h4 id="scrollspyHeading3">Third heading</h4>
+  <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation
+    link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize
+     the scrolling and highlighting.</p>
+  <h4 id="scrollspyHeading4">Fourth heading</h4>
+  <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation
+    link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize
+     the scrolling and highlighting.</p>
+  <h4 id="scrollspyHeading5">Fifth heading</h4>
+  <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation
+    link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize
+     the scrolling and highlighting.</p>
+</div>
+<!--example end-->
+
+<h3>nested nav</h3>
+
+<p>Scrollspy also works with nested .navs. If a nested .nav is .active, its parents will also be .active. Scroll the area next to
+   the navbar and watch the active class change.</p>
+
+<!--example of nested nav-->
+
+<div class="row">
+  <div class="col-4">
+    <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
+      <nav class="nav nav-pills flex-column">
+        <a class="nav-link" href="#item-1">Item 1</a>
+        <nav class="nav nav-pills flex-column">
+          <a class="nav-link ms-3 my-1" href="#item-1-1">Item 1-1</a>
+          <a class="nav-link ms-3 my-1" href="#item-1-2">Item 1-2</a>
+        </nav>
+        <a class="nav-link" href="#item-2">Item 2</a>
+        <a class="nav-link" href="#item-3">Item 3</a>
+        <nav class="nav nav-pills flex-column">
+          <a class="nav-link ms-3 my-1" href="#item-3-1">Item 3-1</a>
+          <a class="nav-link ms-3 my-1" href="#item-3-2">Item 3-2</a>
+        </nav>
+      </nav>
+    </nav>
+  </div>
+
+  <div class="col-8">
+    <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
+      <div id="item-1">
+        <h4>Item 1</h4>
+        <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate
+           navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example
+            copy here to emphasize the scrolling and highlighting.
+<br><br>
+          Keep in mind that the JavaScript plugin tries to pick the right element among all that may be visible. Multiple visible
+           scrollspy targets at the same time may cause some issues.</p>
+      </div>
+      <div id="item-1-1">
+        <h5>Item 1-1</h5>
+        <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate
+          navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example
+           copy here to emphasize the scrolling and highlighting.
+<br><br>
+         Keep in mind that the JavaScript plugin tries to pick the right element among all that may be visible. Multiple visible
+          scrollspy targets at the same time may cause some issues.</p>
+      </div>
+      <div id="item-1-2">
+        <h5>Item 1-2</h5>
+        <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate
+          navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example
+           copy here to emphasize the scrolling and highlighting.
+<br><br>
+         Keep in mind that the JavaScript plugin tries to pick the right element among all that may be visible. Multiple visible
+          scrollspy targets at the same time may cause some issues.</p>
+      </div>
+      <div id="item-2">
+        <h4>Item 2</h4>
+        <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate
+          navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example
+           copy here to emphasize the scrolling and highlighting.
+<br><br>
+         Keep in mind that the JavaScript plugin tries to pick the right element among all that may be visible. Multiple visible
+          scrollspy targets at the same time may cause some issues.</p>
+      </div>
+      <div id="item-3">
+        <h4>Item 3</h4>
+        <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate
+          navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example
+           copy here to emphasize the scrolling and highlighting.
+<br><br>
+         Keep in mind that the JavaScript plugin tries to pick the right element among all that may be visible. Multiple visible
+          scrollspy targets at the same time may cause some issues.</p>
+      </div>
+      <div id="item-3-1">
+        <h5>Item 3-1</h5>
+        <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate
+          navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example
+           copy here to emphasize the scrolling and highlighting.
+<br><br>
+         Keep in mind that the JavaScript plugin tries to pick the right element among all that may be visible. Multiple visible
+          scrollspy targets at the same time may cause some issues.</p>
+      </div>
+      <div id="item-3-2">
+        <h5>Item 3-2</h5>
+        <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate
+          navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example
+           copy here to emphasize the scrolling and highlighting.
+<br><br>
+         Keep in mind that the JavaScript plugin tries to pick the right element among all that may be visible. Multiple visible
+          scrollspy targets at the same time may cause some issues.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--exmaple end-->
+
+<h3>list groups</h3>
+
+<p>Scrollspy also works with .list-groups. Scroll the area next to the list group and watch the active class change.</p>
+
+<!--example of list groups-->
+
+<div class="row">
+  <div class="col-4">
+    <div id="list-example" class="list-group">
+      <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
+      <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
+      <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
+      <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
+    </div>
+  </div>
+  <div class="col-8">
+    <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+      <h4 id="list-item-1">Item 1</h4>
+      <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation
+         link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to 
+         emphasize the scrolling and highlighting.</p>
+      <h4 id="list-item-2">Item 2</h4>
+      <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation
+        link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to 
+        emphasize the scrolling and highlighting.</p>
+      <h4 id="list-item-3">Item 3</h4>
+      <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation
+        link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to 
+        emphasize the scrolling and highlighting.</p>
+      <h4 id="list-item-4">Item 4</h4>
+      <p>his is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation
+        link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to 
+        emphasize the scrolling and highlightingT.</p>
+    </div>
+  </div>
+</div>
+<!--example end-->
+
+<h3>simple anchor’s</h3>
+
+<p>Scrollspy is not limited to nav components and list groups, so it will work on any &lt;a&gt; anchor elements in the current 
+  document. Scroll the area and watch the .active class change.</p>
+
+<!--example of simple anchor-->
+
+<div class="row">
+  <div class="col-4">
+    <div id="simple-list-example" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
+      <a class="p-1 rounded" href="#simple-list-item-1">Item 1</a>
+      <a class="p-1 rounded" href="#simple-list-item-2">Item 2</a>
+      <a class="p-1 rounded" href="#simple-list-item-3">Item 3</a>
+      <a class="p-1 rounded" href="#simple-list-item-4">Item 4</a>
+      <a class="p-1 rounded" href="#simple-list-item-5">Item 5</a>
+    </div>
+  </div>
+  <div class="col-8">
+    <div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+      <h4 id="simple-list-item-1">Item 1</h4>
+      <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation
+        link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to 
+        emphasize the scrolling and highlighting.
+      </p>
+      <h4 id="simple-list-item-2">Item 2</h4>
+      <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation
+        link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to 
+        emphasize the scrolling and highlighting.</p>
+      <h4 id="simple-list-item-3">Item 3</h4>
+      <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation
+        link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to 
+        emphasize the scrolling and highlighting.</p>
+      <h4 id="simple-list-item-4">Item 4</h4>
+      <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation
+        link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to 
+        emphasize the scrolling and highlighting.</p>
+      <h4 id="simple-list-item-5">Item 5</h4>
+      <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation
+        link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to 
+        emphasize the scrolling and highlighting.</p>
+    </div>
+  </div>
+</div>
+<!--example end-->
+
+<h1 class="text-center">spinners</h1>
+
+<p>Bootstrap “spinners” can be used to show the loading state in your projects. They’re built only with HTML and CSS, meaning you
+   don’t need any JavaScript to create them. You will, however, need some custom JavaScript to toggle their visibility.
+    Their appearance, alignment, and sizing can be easily customized with our amazing utility classes.
+
+  For accessibility purposes, each loader here includes role="status" and a nested &lt;span class="visually-hidden"&gt;
+    Loading...&lt;/span&gt;.</p>
+
+<p class="col-md-8 mx auto p-3 bg-light rounded">The animation effect of this component is dependent on the
+   <code> prefers-reduced-motion </code> media query. See the <a class="link" 
+   href="https://getbootstrap.com/docs/5.3/components/spinners/">reduced motion section of our accessibility documentation</a>.</p>
+
+<h3>border spinners</h3>
+
+<p>Use the border spinners for a lightweight loading indicator.</p>
+
+<!--example of border spinner-->
+
+<div class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+<!--end example-->
+
+<h3>colors</h3>
+
+<p>The border spinner uses currentColor for its border-color, meaning you can customize the color with text color utilities.
+   You can use any of our text color utilities on the standard spinner.</p>
+
+<!--example of colors-->
+
+<div class="spinner-border text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-border text-secondary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-border text-success" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-border text-danger" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-border text-warning" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-border text-info" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-border text-light" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-border text-dark" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<!--end of example-->
+
+<p class="col-md-8 mx auto p-3 rounded bg-light">Why not use border-color utilities? Each border spinner specifies a transparent border for at least one side,
+   so .border-{color} utilities would override that.</p>
+
+<h3>growing spinners</h3>
+
+<p>If you don’t fancy a border spinner, switch to the grow spinner. While it doesn’t technically spin, it does repeatedly grow!</p>
+
+<!--example of growing spinners-->
+
+<div class="spinner-grow" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<!--end example-->
+
+<P class="rounded bg-light col-md-8 mx-auto p-3">Once again, this spinner is built with currentColor, so you can easily change its appearance with text color utilities.
+   Here it is in blue, along with the supported variants.</P>
+
+<!--example of color spinners-->
+
+<div class="spinner-grow text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-secondary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-success" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-danger" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-warning" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-info" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-light" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-dark" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<!--end of example-->
+
+<h3>alignment</h3>
+
+<p>Spinners in Bootstrap are built with rems, currentColor, and display: inline-flex. This means they can easily be resized,
+   recolored, and quickly aligned.</p>
+
+<h3>margin</h3>
+
+<p>Use margin utilities like .m-5 for easy spacing.</p>
+
+<!--example of alignment-->
+
+<div class="spinner-border m-5" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<!--end of exmaple-->
+
+<h3>placement</h3>
+
+<p>Use flexbox utilities, float utilities, or text alignment utilities to place spinners exactly where you need
+   them in any situation</p>
+<h3>flex</h3>
+<!--example of placement-->
+
+<div class="d-flex justify-content-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+ 
+<!--example 2 of placement-->
+
+<div class="d-flex align-items-center">
+  <strong role="status">Loading...</strong>
+  <div class="spinner-border ms-auto" aria-hidden="true"></div>
+</div>
+<!--end of examples-->
+
+<h3>floats</h3>
+
+<!--exmaple of floats-->
+
+<div class="clearfix">
+  <div class="spinner-border float-end" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<!--exmaple end-->
+
+<h3>text-align</h3>
+
+<!--example of text-align-->
+
+<div class="text-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<!--end of exmaple-->
+
+<h3>sizing</h3>
+
+<p>Add .spinner-border-sm and .spinner-grow-sm to make a smaller spinner that can quickly be used within other components.</p>
+
+<!--example of sizing-->
+
+<div class="spinner-border spinner-border-sm" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow spinner-grow-sm" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<!--end of example-->
+
+<p>Or, use custom CSS or inline styles to change the dimensions as needed.</p>
+
+<!--example of inline-->
+
+<div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<!--end of example-->
+
+<h3>buttons</h3>
+
+<p>Use spinners within buttons to indicate an action is currently processing or taking place. You may also swap the text out of
+   the spinner element and utilize button text as needed.</p>
+
+<!--example of buttons-->
+
+<button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+  <span class="visually-hidden" role="status">Loading...</span>
+</button>
+<button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+  <span role="status">Loading...</span>
+</button>
+
+<!--example 2 of buttons growing-->
+
+<button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+  <span class="visually-hidden" role="status">Loading...</span>
+</button>
+<button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+  <span role="status">Loading...</span>
+</button>
+<!--end of examples-->
+
+<h1 class="text-center">toasts</h1>
+
+<p>Toasts are lightweight notifications designed to mimic the push notifications that have been popularized by mobile and desktop
+   operating systems. They’re built with flexbox, so they’re easy to align and position.</p>
+
+<h3>overview</h3>
+
+<p>Things to know when using the toast plugin:</p>
+<ul class="list-group"><li class="list-item">Toasts are opt-in for performance reasons, so you must initialize them yourself.</li>
+<li class="list-item">Toasts will automatically hide if you do not specify autohide: false.</li></ul>
+
+<p class="col-md-8 mx-auto p-3 bg-light rounded">The animation effect of this component is dependent on the
+  <code> prefers-reduced-motion </code> media query. See the <a class="link" 
+  href="https://getbootstrap.com/docs/5.3/components/spinners/">reduced motion section of our accessibility documentation</a>.</p>
+
+<h2>examples</h2>
+
+<h3>basic</h3>
+
+<p>To encourage extensible and predictable toasts, we recommend a header and body. Toast headers use display: flex, allowing easy
+   alignment of content thanks to our margin and flexbox utilities.
+<br><br>
+  Toasts are as flexible as you need and have very little required markup. At a minimum, we require a single element to contain
+   your “toasted” content and strongly encourage a dismiss button.</p>
+
+ <!-- Example Code -->
+        
+ <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
+    <strong class="me-auto">Bootstrap</strong>
+    <small>11 mins ago</small>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">
+    Hello, world! This is a toast message.
+  </div>
+</div>
+<!-- End Example Code -->
+
+<p>Previously, our scripts dynamically added the .hide class to completely hide a toast (with display:none, rather than just with
+   opacity:0). This is now not necessary anymore. However, for backwards compatibility, our script will continue to toggle the
+    class (even though there is no practical need for it) until the next major version.</p>
+
+<h3>live example</h3>
+
+<p>Click the button below to show a toast (positioned with our utilities in the lower right corner) that has been hidden
+   by default.</p>
+ 
+   <!--example of code-->
+
+   <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+   <div class="toast-container position-fixed bottom-0 end-0 p-3 fade show">
+     <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+       <div class="toast-header">
+         <img src="../assest/123.jpg" class="rounded me-2" alt="...">
+         <strong class="me-auto">Bootstrap</strong>
+         <small>11 mins ago</small>
+         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+       </div>
+       <div class="toast-body">
+         Hello, world! This is a toast message.
+       </div>
+     </div>
+   </div>
+<!--end example code-->
+
+<p>We use the following JavaScript to trigger our live toast demo:</p>
+
+<script src="https://github.com/twbs/bootstrap/blob/v5.3.3/site/assets/js/snippets.js"></script>
+
+<h3>translucent</h3>
+
+<p>Toasts are slightly translucent to blend in with what’s below them.</p>
+
+<!--exmpale of code-->
+
+<div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <img width="20px" height="20px" src="../assest/google.png" class="rounded me-2" alt="...">
+    <strong class="me-auto">Google</strong>
+    <small class="text-body-secondary">11 mins ago</small>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">
+    Hello, world! This is a toast message.
+  </div>
+</div>
+<!--end of exmaple code-->
+
+<h3>stacking</h3>
+
+<p>You can stack toasts by wrapping them in a toast container, which will vertically add some spacing.</p>
+
+<!--example of code-->
+
+<div class="toast-container position-static">
+  <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img width="20px" height="20px" src="../assest/slider img.jpg" class="rounded me-2" alt="...">
+      <strong class="me-auto">Web devalopment</strong>
+      <small class="text-body-secondary">just now</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      See? Just like this.
+    </div>
+  </div>
+
+  <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img width="20px" height="20px" src="../assest/instagram.png" class="rounded me-2" alt="...">
+      <strong class="me-auto">instagram</strong>
+      <small class="text-body-secondary">2 seconds ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Heads up, toasts will stack automatically
+    </div>
+  </div>
+</div>
+<!--end of example code-->
+
+<h3>custom content</h3>
+
+<p>Customize your toasts by removing sub-components, tweaking them with utilities, or by adding your own markup. Here we’ve 
+  created a simpler toast by removing the default .toast-header, adding a custom hide icon from Bootstrap Icons, and using 
+  some flexbox utilities to adjust the layout.</p>
+
+<!--example of code-->
+
+<div class="toast align-items-center show" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="d-flex">
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+</div>
+<!--end of example code-->
+
+
+</div></body></html>

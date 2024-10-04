@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="English">
+  <head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mini bazaar</title>
+ 
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link href="../../Bootstrap/bootstrap-5.3.3-dist/css/bootstrap-grid.css" rel="stylesheet">
+    <link href="../../Bootstrap/bootstrap-5.3.3-examples/navbar-fixed/navbar-fixed.css">
+  <link href="../../Bootstrap/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="./css.css"/>
+    <script src="./bootstrap.bundle.min.js"></script>
+</head>
+<body class="m-0 border-0 text-bg-primary">
+<div class="container-fluid p-2">
+<!--cdn file is linked now-->
+
+<nav class="navbar sticky-top navbar-expand-lg bg-dark my-3 mx-4 rounded-4 border border-2 border-primary py-1" data-bs-theme="dark">
+  <div class="container-fluid bg-dark rounded-3">
+
+    <a href="" class="nav-link">
+    <img alt="mini bazaar logo" width="80" height="80" class=" rounded-circle py-1 px-1" src="../assest/rgb theme.jpg">
+     <strong>mini bazaar</strong></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../Contact Us/index.html">Contact Us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="../FAQs/index.html" role="button" data-bs-toggle="dropdown"
+           aria-expanded="false">
+            More
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="../HTML Multimedia/index.html">My Videos</a></li>
+            <li><a class="dropdown-item" href="../CSS Complete Course/index.html">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="../HTML Complete/index.html">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Khan Jee 786</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search" action="../E-Commerce Store/index.html">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+   
+<!--full size image-->
+<img class="img" src="../assest/slider img.jpg.jpg" alt="main store image" width="100%" height="720px"></main>
+</header>
+<!--section page-->
+<!--login form-->
+
+<form class="row bg-dark bg-gradient mx-4 my-3 needs-validation" action="../E-Commerce Store/index.html">
+<legend class="text-center display-5 mb-1">Sign in</legend>
+
+<div class="col-md-6 mb-2">
+<label for="first-name" class="form-label" >First Name</label>
+<input required id="first-name" class="form-control" type="name" id="first-name" placeholder="first name">
+</div>
+<div class="col-md-6 mb-2">
+<label for="last-name" class="form-label">Last Name</label>
+<input required class="form-control" type="name"id="last-name" placeholder="type last name">
+</div>
+<div class="col-md-6 mb-2">
+<label for="email" class="form-label">Email Adress</label>
+<input required class="form-control" type="email" id="email"
+ placeholder="type email adress">
+</div>
+<div class="col-md-9 mb-2">
+<label for="optional" class="form-label">Adress Optional</label>
+<textarea class="form-control" id="optional"></textarea>
+</div>
+<div class="col-md-5 mb-2">
+<label for="password" class="form-label">Password</label>
+<input required class="form-control" type="password" id="password" 
+placeholder="Create strong password">
+</div>
+<div class="col-md-2 mb-2">
+<label for="gender" class="form-label">Gender</label>
+<select required id="gender" class="form-control">
+  <option class="input5">Choose</option>
+  <option class="input5">male</option>
+  <option class="input5">female</option>
+  <option class="input5">other</option></select>
+</div>
+<div class="col-md-4 mb-2">
+<label for="date" class="form-label">Date of birth</label>
+<input required class="form-control" style="color:green;" type="date" id="date"></div>
+<div class="col-md-12">
+  <input required id="agree" type="checkbox">
+<label for="agree" class="form-label"> i accept turms and agrement</label>
+</div>
+<div class="col-md-1 my-3 ms-5">
+<button class="btn btn-success">submit</button>
+</div>
+<span class="col-md-1 my-3 h5">or</span>
+<div class="col-md-6 my-3"> 
+ <script src="https://accounts.google.com/gsi/client" async></script>
+ <div id="g_id_onload"
+     data-client_id="YOUR_GOOGLE_CLIENT_ID"
+     data-login_uri="https://your.domain/your_login_endpoint"
+     data-auto_prompt="false">
+ </div>
+ <div class="g_id_signin"
+     data-type="standard"
+     data-size="large"
+     data-theme="outline"
+     data-text="sign_in_with"
+     data-shape="rectangular"
+     data-logo_alignment="left">
+ </div>
+</div></form>
+
+<!--footer-->
+ <footer class="row"><div class="footer">
+  <div>
+<label for="#language">Language</label>
+<select id="language" class="dropdown-manu">
+<option class="dropdown-item">  English</option>
+<Option class="dropdown-item">Arabic</Option>
+<option class="dropdown-item">Urdu</option></select></div>
+<br>
+   <!--FAQs section--> 
+<div class="row"> <strong class="col-1 text-center">FAQs </strong><details class="col-8 text-start"><summery>what do if i forgot my password?</summery>
+  <p>if you forgot your password click on signup button above</p></details> 
+</div>
+    <p class="text-center h6">&copy; CopyRight reserved 2024</p>
+<div class="row">
+  <div class="col text-center">
+<a href="www.tiktok.com/"><img class="img2" width="45px" src="../assest/tiktok.png" alt=""></a>
+<a href="www.twitter.com/"><img class="img3" width="50px" src="../assest/twitter.png"></a>
+<a href="www.whatsap.web/"><img class="img4" width="50px" src="../assest/whatsap.png"></a>
+</div></div>
+<p class="text-center h5"> Page is devaloped by Ishaq Khan Rind</p></div> </footer>
+</div>
+</body>
+</html>

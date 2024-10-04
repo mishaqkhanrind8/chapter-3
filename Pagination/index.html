@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Pagination</title>
+<style>
+    body{background-color: rgba(138, 86, 118, 0.2);
+    color: black;}
+    h1, h2, h3{ color: blue;
+    text-transform: capitalize;;}
+</style>
+<script src="./bootstrap.bundle.min.js"></script>
+</head>
+  <body class="p-3 m-0 border-0 bd-example m-0 border-0">
+<div class="container-fluid">
+
+<h1 class="text-center">pagination</h1>
+
+<p>We use a large block of connected links for our pagination, making links hard to miss and easily scalable—all while providing
+     large hit areas. Pagination is built with list HTML
+     elements so screen readers can announce the number of available links. Use a wrapping &lt;nav&gt; element to identify it as a
+         navigation section to screen readers and other assistive technologies.
+
+    In addition, as pages likely have more than one such navigation section, it's advisable to provide a descriptive aria-label
+     for the &lt;nav&gt; to reflect its purpose. For example, if the pagination component is used to navigate between a set of 
+     search results, an appropriate label could be aria-label="Search results pages".</p>
+
+<!--pagination example-->
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </nav>
+
+<h3>Working with icons</h3>
+
+<p>Looking to use an icon or symbol in place of text for some pagination links? Be sure to provide proper screen reader support
+     with aria attributes.</p>
+
+<!--working with icon example-->
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+<h3>Disabled and active states</h3>
+
+<p>Pagination links are customizable for different circumstances. Use .disabled for links that appear un-clickable and .active
+     to indicate the current page.
+
+    While the .disabled class uses pointer-events: none to try to disable the link functionality of &lt;a&gt;s, that CSS property is 
+        not yet standardized and doesn’t account for keyboard navigation. As such, you should always add tabindex="-1" on 
+        disabled links and use custom JavaScript to fully disable their functionality.</p>
+
+<!--disabled and active states-->
+
+<nav aria-label="page pagination example">
+    <ul class="pagination">
+      <li class="page-item disabled">
+        <a class="page-link">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item active" aria-current="page">
+        <a class="page-link" href="#">2</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+
+<p>You can optionally swap out active or disabled anchors for &lt;span&gt;, or omit the anchor in the case of the prev/next arrows,
+     to remove click functionality and prevent keyboard focus while retaining intended styles.</p>
+
+
+     <!--example 2-->
+
+     <nav aria-label="...">
+        <ul class="pagination">
+          <li class="page-item disabled">
+            <span class="page-link">Previous</span>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item active" aria-current="page">
+            <span class="page-link">2</span>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+
+<h3>sizing</h3>
+
+<p>Fancy larger or smaller pagination? Add .pagination-lg or .pagination-sm for additional sizes.</p>
+
+<!--example of sizing-->
+
+<!--larger-->
+
+<nav aria-label="page pagination example">
+    <ul class="pagination pagination-lg">
+      <li class="page-item active" aria-current="page">
+        <span class="page-link">1</span>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+    </ul>
+  </nav>
+<hr>
+<!--smaller-->
+
+<nav aria-label="...">
+    <ul class="pagination pagination-sm">
+      <li class="page-item active" aria-current="page">
+        <span class="page-link">1</span>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+    </ul>
+  </nav>
+
+<h3>Alignment</h3>
+
+<p>Change the alignment of pagination components with flexbox utilities. For example, with .justify-content-center:</p>
+
+<!--example of alignment center-->
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled">
+        <a class="page-link">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+
+<p>Or with .justify-content-end:</p>
+
+<!--example of alignment end-->
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+      <li class="page-item disabled">
+        <a class="page-link">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+
+<h1 class="text-center">placeholders</h1>
+
+<p>Placeholders can be used to enhance the experience of your application. They’re built only with HTML and CSS, meaning you 
+    don’t need any JavaScript to create them. You will, however, need some custom JavaScript to toggle their visibility.
+     Their appearance, color, and sizing can be easily customized with our utility classes.</p>
+
+<h4>example</h4>
+
+<p>In the example below, we take a typical card component and recreate it with placeholders applied to create a “loading card”.
+     Size and proportions are the same between the two.</p>
+
+<!--example of placeholder-->
+
+<div class="row">
+
+<div class="card col-md-5 mx-auto">
+    <img src="./assests/slider img.jpg" class="card-img-top" alt="browser not supported"/>
+  
+    <div class="card-body">
+      <h5 class="card-title">web-devalopment</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">contect us</a>
+    </div>
+  </div>
+  
+<!--placeholders-->
+
+  <div class="card col-md-5 mx-auto" aria-hidden="true">
+    <img src="./assests/slider img 3 .jpg.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title placeholder-glow">
+        <span class="placeholder col-6"></span>
+      </h5>
+      <p class="card-text placeholder-glow">
+        <span class="placeholder col-7"></span>
+        <span class="placeholder col-4"></span>
+        <span class="placeholder col-4"></span>
+        <span class="placeholder col-6"></span>
+        <span class="placeholder col-8"></span>
+      </p>
+      <a class="btn btn-primary disabled placeholder col-6" aria-disabled="true"></a>
+    </div>
+  </div>
+</div>
+
+<h3>how it works</h3>
+
+<p>Create placeholders with the .placeholder class and a grid column class (e.g., .col-6) to set the width. They can replace 
+    the text inside an element or be added as a modifier class to an existing component.
+
+    We apply additional styling to .btns via ::before to ensure the height is respected. You may extend this pattern for other
+     situations as needed, or add a &lt;&nbsp;braekspace code which is in file&gt; within the element to reflect the height when actual text is rendered in its place.</p>
+
+<!--example-->
+
+<p aria-hidden="true">
+    <span class="placeholder col-6"></span>
+  </p>
+  
+  <a class="btn btn-primary disabled placeholder col-4" aria-disabled="true"></a>
+
+  <hr>
+
+<p class="bg-primary rounded p-3 col-md-8 mx-auto">The use of aria-hidden="true" only indicates that the element should be hidden to screen readers. The loading behavior of
+     the placeholder depends on how authors will actually use the placeholder styles, how they plan to update things, etc. Some
+      JavaScript code may be needed to swap the state of the placeholder and inform AT users of the update.</p>
+
+<h3>width</h3>
+
+<p>You can change the width through grid column classes, width utilities, or inline styles</p>
+
+<!--example of width-->
+
+<span class="placeholder col-6"></span>
+<span class="placeholder w-75"></span>
+<span class="placeholder" style="width: 25%;"></span>
+
+<h3>colors</h3>
+
+<p>By default, the placeholder uses currentColor. This can be overridden with a custom color or utility class.</p>
+
+<!--example of colors-->
+
+<span class="placeholder col-12"></span>
+
+<span class="placeholder col-12 bg-primary"></span>
+<span class="placeholder col-12 bg-secondary"></span>
+<span class="placeholder col-12 bg-success"></span>
+<span class="placeholder col-12 bg-danger"></span>
+<span class="placeholder col-12 bg-warning"></span>
+<span class="placeholder col-12 bg-info"></span>
+<span class="placeholder col-12 bg-light"></span>
+<span class="placeholder col-12 bg-dark"></span>
+
+<h3>sizing</h3>
+
+<p>The size of .placeholders are based on the typographic style of the parent element. Customize them with sizing modifiers:
+     .placeholder-lg, .placeholder-sm, or .placeholder-xs.
+</p>
+
+<!--example of sizing-->
+
+<span class="placeholder col-12 placeholder-lg"></span>
+<span class="placeholder col-12 placeholder-md"></span>
+<span class="placeholder col-12 placeholder-sm"></span>
+<span class="placeholder col-12 placeholder-xs"></span>
+
+<h3>animation</h3>
+
+<p>Animate placeholders with .placeholder-glow or .placeholder-wave to better convey the perception of something being actively
+     loaded.</p>
+
+<!--example of animation-->
+
+<p class="placeholder-glow">
+    <span class="placeholder col-12"></span>
+  </p>
+  
+  <p class="placeholder-wave">
+    <span class="placeholder col-12 bg-secondary h5 p-1">please wait while page is loading ...</span>
+  </p>
+
+<h1 class="text-center"> popovers</h1>
+
+<p>Things to know when using the popover plugin:
+
+    Popovers rely on the third party library Popper for positioning. You must include popper.min.js before bootstrap.js, or
+     use one bootstrap.bundle.min.js which contains Popper.
+    Popovers require the popover plugin as a dependency.
+    Popovers are opt-in for performance reasons, so you must initialize them yourself.
+    Zero-length title and content values will never show a popover.
+    Specify container: 'body' to avoid rendering problems in more complex components (like our input groups, button groups, etc).
+    Triggering popovers on hidden elements will not work.
+    Popovers for .disabled or disabled elements must be triggered on a wrapper element.
+    When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors’ overall width. 
+    Use .text-nowrap on your &lt;a&gt;s to avoid this behavior.
+    Popovers must be hidden before their corresponding elements have been removed from the DOM.
+    Popovers can be triggered thanks to an element inside a shadow DOM.</p>
+
+<p class="col-md-8 mx-auto p-2 bg-light rounded">By default, this component uses the built-in content sanitizer, which strips
+     out any HTML elements that are not explicitly allowed. See the 
+     <a class="link" href="https://getbootstrap.com/docs/5.3/getting-started/javascript/#sanitizer">
+         sanitizer section in our JavaScript documentation</a> for more 
+     details.
+    The animation effect of this component is dependent on the prefers-reduced-motion media query. See the
+   <a class="link" href="https://getbootstrap.com/docs/5.3/getting-started/accessibility/#reduced-motion">
+     reduced motion section of our accessibility documentation</a>.</p>
+
+<h3>examples</h3>
+
+<h4>enabled popovers</h4>
+
+<p>As mentioned above, you must initialize popovers before they can be used. One way to initialize all popovers on a page would
+     be to select them by their data-bs-toggle attribute, like so:</p>
+
+     <!--example of popovers-->
+
+<h3>live demu</h3>
+
+<p>We use JavaScript similar to the snippet above to render the following live popover. Titles are set via data-bs-title 
+    and body content is set via data-bs-content.</p>
+
+<p class="col-md-8 mx-auto p-2 bg-secondary rounded">Feel free to use either title or data-bs-title in your HTML. When title is used,
+     Popper will replace it automatically with data-bs-title when the element is rendered.</p>
+ 
+     <!-- Example Code -->
+        
+ <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Popover title"
+  data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+    
+ <!-- End Example Code -->
+
+<h3>four directions</h3>
+
+<p>Four options are available: top, right, bottom, and left. Directions are mirrored when using Bootstrap in RTL.
+     Set data-bs-placement to change the direction.</p>
+
+<!-- Example Code -->
+          
+<button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" 
+data-bs-content="Top popover">
+    Popover on top
+  </button>
+  <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" 
+  data-bs-content="Right popover">
+    Popover on right
+  </button>
+  <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom"
+   data-bs-content="Bottom popover">
+    Popover on bottom
+  </button>
+  <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left"
+   data-bs-content="Left popover">
+    Popover on left
+  </button>
+  
+  <!-- End Example Code -->
+
+<h3>custom container</h3>
+
+<p>When you have some styles on a parent element that interfere with a popover, you’ll want to specify a custom container so that 
+    the popover’s HTML appears within that element instead. This is common in responsive tables, input groups, and the like.</p>
+
+<p>Another situation where you’ll want to set an explicit custom container are popovers inside a modal dialog, to make sure that
+     the popover itself is appended to the modal. This is particularly important for popovers that contain interactive 
+     elements – modal dialogs will trap focus, so unless the popover is a child element of the modal, users won’t be able to
+      focus or activate these interactive elements.</p>
+
+  <h3>custom popovers</h3>
+
+  <p>You can customize the appearance of popovers using CSS variables. We set a custom class with 
+    data-bs-custom-class="custom-popover" to scope our custom appearance and use it to override some of the local
+     CSS variables.</p>
+
+     <!--example of custom popover-->
+
+     <button type="button" class="btn btn-secondary"
+        data-bs-toggle="popover" data-bs-placement="right"
+        data-bs-custom-class="custom-popover"
+        data-bs-title="Custom popover"
+        data-bs-content="This popover is themed via CSS variables.">
+  Custom popover
+</button>
+
+<h3>Dismiss on next click</h3>
+
+<p>Use the focus trigger to dismiss popovers on the user’s next click of an element other than the toggle element.</p>
+
+<p>Dismissing on next click requires specific HTML for proper cross-browser and cross-platform behavior. You can only use
+     &lt;a&gt; elements, not &lt;button&gt;s, and you must include a
+      <a class="link" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex">tabindex</a>.</p>
+
+<!--example of dissmis on next click-->
+
+<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-bs-toggle="popover" data-bs-trigger="focus" 
+data-bs-title="Dismissible popover" data-bs-content="And here's some amazing content. It's very engaging. Right?">
+Dismissible popover</a>
+
+<h3>disabled elements</h3>
+
+<p>Elements with the disabled attribute aren’t interactive, meaning users cannot hover or click them to trigger a popover
+     (or tooltip). As a workaround, you’ll want to trigger the popover from a wrapper &lt;div&gt; or &lt;span&gt;, ideally made
+         keyboard-focusable using tabindex="0".
+
+    For disabled popover triggers, you may also prefer data-bs-trigger="hover focus" so that the popover appears as immediate
+     visual feedback to your users as they may not expect to click on a disabled element.</p>
+
+<!--example of disabled elements-->
+
+<span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
+    <button class="btn btn-primary" type="button" disabled>Disabled button</button>
+  </span>
+
+<h1 class="text-center">progress</h1>
+
+<h3>how it works</h3>
+
+<p>Progress components are built with two HTML elements, some CSS to set the width, and a few attributes. We don’t use the
+     HTML5 &lt;progress&gt; element, ensuring you can stack progress bars, animate them, and place text labels over them.
+
+    We use the .progress as a wrapper to indicate the max value of the progress bar.
+    The .progress wrapper also requires a role="progressbar" and aria attributes to make it accessible, including an accessible 
+    name (using aria-label, aria-labelledby, or similar). <br><br>
+    We use the inner .progress-bar purely for the visual bar and label.
+    The .progress-bar requires an inline style, utility class, or custom CSS to set its width.
+    We provide a special .progress-stacked class to create multiple/stacked progress bars.
+    Put that all together, and you have the following examples.</p>
+
+<!--example of progressbar-->
+         
+<div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar" style="width: 0%">0%</div>
+  </div><br>
+  <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar" style="width: 25%">25%</div>
+  </div><br>
+  <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar" style="width: 50%">50%</div>
+  </div><br>
+  <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar" style="width: 75%">75%</div>
+  </div><br>
+  <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar" style="width: 100%">100%</div> 
+  </div><br>
+
+<h3>bar sizing</h3>
+
+<h4>width</h4>
+
+<p class="bg-light rounded p-2">Bootstrap provides a handful of
+     <a class="link" href="https://getbootstrap.com/docs/5.3/utilities/sizing/">utilities for setting width</a> 
+     . Depending on your needs, these may help with quickly configuring
+     the width of the .progress-bar.</p>
+
+<!--example of bar sizing width-->
+
+<div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar w-75">75%</div>
+  </div>
+
+<h4>height</h4>
+
+<p>You only set a height value on the .progress container, so if you change that value, the inner .progress-bar will 
+    automatically resize accordingly.</p>
+
+<!--example of bar sizing height-->
+
+<div class="progress" role="progressbar" aria-label="Example 15px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" 
+style="height: 15px">
+    <div class="progress-bar" style="width: 25%">25%</div>
+  </div><br>
+  <div class="progress" role="progressbar" aria-label="Example 20px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+   style="height: 20px">
+    <div class="progress-bar" style="width: 25%">25%</div>
+  </div>
+
+<h3>labels</h3>
+
+<p>Add labels to your progress bars by placing text within the .progress-bar.</p>
+
+<div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar" style="width: 25%">25%</div>
+  </div>
+<br>
+<p class="bg-light p-2 col-md-8 mx-auto rounded"><strong> Note</strong> that by default, the content inside the <code>
+     .progress-bar</code> iscontrolled with <code> overflow: hidden </code>, so it doesn’t bleed out of the bar. If your 
+     progress bar is shorter than its label, the content will be capped and may become unreadable. To change this behavior,
+      you can use <code> .overflow-visible</code> from the
+       <a class="link" href="https://getbootstrap.com/docs/5.3/utilities/overflow/">overflow utilities</a> , but make sure
+      to also define an explicit <a class="link" href="https://getbootstrap.com/docs/5.3/utilities/colors/#colors"> text color</a>
+       so the text remains readable. Be aware though that currently this approach does
+        not take into account <a class="link" href="https://getbootstrap.com/docs/5.3/customize/color-modes/">color modes</a>.</p>
+
+        <!--exampe of code-->
+
+        <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="10" aria-valuemin="0"
+         aria-valuemax="100">
+          <div class="progress-bar overflow-visible text-dark" style="width: 10%">Long label text for the progress bar, set to
+            a dark color</div>
+        </div>
+
+
+<h3>backgrounds</h3>
+
+<p>Use background utility classes to change the appearance of individual progress bars.</p>
+
+<!--example of background progress bars-->
+
+<div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar bg-success" style="width: 25%">25%</div>
+</div><br>
+<div class="progress" role="progressbar" aria-label="Info example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar bg-info text-dark" style="width: 50%">50%</div>
+</div><br>
+<div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar bg-warning text-dark" style="width: 75%">75%</div>
+</div><br>
+<div class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar bg-danger" style="width: 100%">100%</div>
+</div><br>
+
+<P class="border-1 bg-light rounded p-3 col-md-8 mx-auto "><strong> Accessibility tip:</strong> Using color to add meaning only 
+  provides a visual indication, which will not be conveyed to users of
+   assistive technologies like screen readers. Please ensure the meaning is obvious from the content itself (e.g., the visible 
+   text with a <a class="link" href="https://getbootstrap.com/docs/5.3/getting-started/accessibility/#color-contrast"> sufficient
+     color contrast</a>) or is included through alternative means, such as additional text hidden with the
+   <code> .visually-hidden</code> class.</P>
+
+<p>If you’re adding labels to progress bars with a custom background color, make sure to also set an appropriate text color,
+   so the labels remain readable and have sufficient contrast.</p>
+
+<!--example of code-->
+
+<div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar bg-success" style="width: 25%">25%</div>
+</div><br>
+<div class="progress" role="progressbar" aria-label="Info example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar bg-info text-dark" style="width: 50%">50%</div>
+</div><br>
+<div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar bg-warning text-dark" style="width: 75%">75%</div>
+</div><br>
+<div class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar bg-danger" style="width: 100%">100%</div>
+</div><br>
+
+<p>Alternatively, you can use the new combined color and background helper classes.</p>
+
+<!--example of code-->
+
+<div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar text-bg-warning" style="width: 75%">75%</div>
+</div>
+
+<h3>multiple bars</h3>
+
+<p>You can include multiple progress components inside a container with .progress-stacked to create a single stacked progress bar.
+   Note that in this case, the styling to set the visual width of the progress bar must be applied to the .progress elements,
+    rather than the .progress-bars.</p>
+
+<!--example of code-->
+
+<div class="progress-stacked">
+  <div class="progress" role="progressbar" aria-label="Segment one" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"
+   style="width: 15%">
+    <div class="progress-bar"></div>
+  </div><br>
+  <div class="progress" role="progressbar" aria-label="Segment two" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"
+   style="width: 30%">
+    <div class="progress-bar bg-success"></div>
+  </div><br>
+  <div class="progress" role="progressbar" aria-label="Segment three" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" 
+  style="width: 20%">
+    <div class="progress-bar bg-info"></div>
+  </div><br>
+</div>
+
+<h3>striped</h3>
+
+<p>Add .progress-bar-striped to any .progress-bar to apply a stripe via CSS gradient over the progress bar’s background color.</p>
+
+<!--example of code-->
+
+<div class="progress" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar progress-bar-striped" style="width: 10%"></div>
+</div><br>
+<div class="progress" role="progressbar" aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar progress-bar-striped bg-success" style="width: 25%"></div>
+</div><br>
+<div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar progress-bar-striped bg-info" style="width: 50%"></div>
+</div><br>
+<div class="progress" role="progressbar" aria-label="Warning striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar progress-bar-striped bg-warning" style="width: 75%"></div>
+</div><br>
+<div class="progress" role="progressbar" aria-label="Danger striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar progress-bar-striped bg-danger" style="width: 100%"></div>
+</div>
+
+<h3>animated striped</h3>
+
+<p>The striped gradient can also be animated. Add .progress-bar-animated to .progress-bar to animate the stripes right to
+   left via CSS3 animations.</p>
+
+<!--example of code-->
+
+<div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0"
+ aria-valuemax="100">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%"></div>
+</div>
+
+</div></body>
+</html>

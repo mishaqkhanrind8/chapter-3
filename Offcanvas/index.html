@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+    body{background-color: rgba(138, 86, 118, 0.2);
+    color: black;}
+    h1, h2, h3{ color: blue;
+    text-transform: capitalize;;}
+</style>
+</head>
+  <body class="p-3 m-0 border-0 bd-example m-0 border-0">
+<div class="container-fluid">
+
+  <h1 class="text-center">offcanvas</h1>
+
+  <p>Build hidden sidebars into your project for navigation, shopping carts, and more with a few classes and our
+   JavaScript plugin. </p>
+
+<h3>how it works</h3>
+
+<p>Offcanvas is a sidebar component that can be toggled via JavaScript to appear from the left, right, top, or bottom edge
+   of the viewport. Buttons or anchors are used as triggers that are attached to specific elements you toggle, and data attributes
+    are used to invoke our JavaScript.</p>
+    <ul>
+      <li>Offcanvas shares some of the same JavaScript code as modals. Conceptually, they are quite similar, but they are separate
+         plugins.</li>
+    <li>Similarly, some source Sass variables for offcanvas’s styles and dimensions are inherited from the modal’s variables.</li>
+<li>When shown, offcanvas includes a default backdrop that can be clicked to hide the offcanvas.</li> 
+<li>Similar to modals, only one offcanvas can be shown at a time.</li> </ul>
+<p> <strong> Heads up!</strong> Given how CSS handles animations, you cannot use margin or translate on an .offcanvas element.
+   Instead, use the class as an independent wrapping element.</p>
+   <p>The animation effect of this component is dependent on the prefers-reduced-motion media query. See the reduced motion section
+     of our accessibility documentation.</p>
+
+<h3>offcanvas components</h3>
+
+<p>Below is an offcanvas example that is shown by default (via .show on .offcanvas). Offcanvas includes support for a header with
+   a close button and an optional body class for some initial padding. We suggest that you include offcanvas headers with 
+   dismiss actions whenever possible, or provide an explicit dismiss action.</p>
+
+<!--offcanvas basic example-->
+
+   <div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.
+    </div>
+  </div>
+
+<h3>live demu</h3>
+
+<p>Use the buttons below to show and hide an offcanvas element via JavaScript that toggles the .show class on an element with the
+   .offcanvas class.
+
+  .offcanvas hides content (default)
+  .offcanvas.show shows content
+  You can use a link with the href attribute, or a button with the data-bs-target attribute. In both cases,
+   the data-bs-toggle="offcanvas" is required.</p>
+
+<!--example of offcanvas live demu-->
+
+<a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+  Link with href
+</a>
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+  Button with data-bs-target
+</button>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+    </div>
+    <div class="dropdown mt-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        Dropdown button
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h3>body scrolling</h3>
+
+<p>Scrolling the &lt;body&gt; element is disabled when an offcanvas and its backdrop are visible. Use the data-bs-scroll attribute
+   to enable &lt;body&gt; scrolling.</p>
+
+<!--example of body scrolling-->
+
+   <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+    aria-controls="offcanvasScrolling">Enable body scrolling</button>
+
+   <div class="offcanvas offcanvas-start" data-bs-backdrop="false" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling"
+    aria-labelledby="offcanvasScrollingLabel">
+     <div class="offcanvas-header">
+       <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+     </div>
+     <div class="offcanvas-body">
+       <p>Try scrolling the rest of the page to see this option in action.</p>
+     </div>
+   </div>
+
+<h3>body scrolling and backdrop</h3>
+
+<p>You can also enable &lt;body&gt; scrolling with a visible backdrop.</p>
+
+<!--exampe of scrolling and backdrop-->
+
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" 
+aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" 
+aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>Try scrolling the rest of the page to see this option in action.</p>
+  </div>
+</div>
+
+<h3>static backdrop</h3>
+
+<p>When backdrop is set to static, the offcanvas will not close when clicking outside of it</p>
+
+<!--static backdrop-->
+
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+  Toggle static offcanvas
+</button>
+
+<div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="staticBackdropLabel">Offcanvas</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      I will not close if you click outside of me.
+    </div>
+  </div>
+</div>
+
+<h3>dark</h3>
+
+<p>Change the appearance of offcanvases with utilities to better match them to different contexts like dark navbars. Here we add
+   .text-bg-dark to the .offcanvas and .btn-close-white to .btn-close for proper styling with a dark offcanvas. If you have
+    dropdowns within, consider also adding .dropdown-menu-dark to .dropdown-menu.</p>
+<p> <strong> Heads up!</strong> Dark variants for components were deprecated in v5.3.0 with the introduction of color modes.
+   Instead of manually adding classes mentioned above, set data-bs-theme="dark" on the root element, a parent wrapper,
+   or the component itself.</p>
+
+<!--example of dark offcanvass-->
+
+<div class="offcanvas offcanvas-start show text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasDarkLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasDarkLabel">Offcanvas</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvasDark" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>Place offcanvas content here.</p>
+  </div>
+</div>
+
+<h3>responsive</h3>
+
+<p>Responsive offcanvas classes hide content outside the viewport from a specified breakpoint and down. Above that breakpoint,
+   the contents within will behave as usual. For example, .offcanvas-lg hides content in an offcanvas below the lg breakpoint,
+    but shows the content above the lg breakpoint.</p>
+
+<!--example of responsive offcanvas-->
+
+<button class="btn btn-primary d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive"
+ aria-controls="offcanvasResponsive">Toggle offcanvas</button>
+
+<div class="alert alert-info d-none d-lg-block">Resize your browser to show the responsive offcanvas toggle.</div>
+
+<div class="offcanvas-lg offcanvas-end" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">Responsive offcanvas</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p class="mb-0">This is content within an <code>.offcanvas-lg</code>.</p>
+  </div>
+</div>
+
+<p>Responsive offcanvas classes are available across for each breakpoint.</p>
+<ul class="row"><li class="col-sm-6 col-md-4">.offcanvas</li>
+<li class="col-sm-6 col-md-4"> .offcanvas-sm</li>
+<li class="col-sm-6 col-md-4">.offcanvas-md</li> 
+<li class="col-sm-6 col-md-4">.offcanvas-lg</li>
+<li class="col-sm-6 col-md-4">.offcanvas-xl</li>
+<li class="col-sm-6 col-md-4">.offcanvas-xxl</li></ul>
+
+<h3>placement</h3>
+
+<p>There’s no default placement for offcanvas components, so you must add one of the modifier classes below.</p>
+
+<ul><li>.offcanvas-start places offcanvas on the left of the viewport (shown above)</li>
+<li>.offcanvas-end places offcanvas on the right of the viewport</li>
+<li>.offcanvas-top places offcanvas on the top of the viewport</li>
+<li>.offcanvas-bottom places offcanvas on the bottom of the viewport</li></ul>
+<p>Try the top, right, and bottom examples out below.</p>
+
+<!--example of toggle top-->
+
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Toggle top offcanvas</button>
+
+<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasTopLabel">Offcanvas top</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    My name is Muhammad Ishaq khan I am a frontend web-developer!
+  </div>
+</div>
+
+<!--toggle right-->
+
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    My name is Muhammad Ishaq khan I am a frontend web-developer!
+  </div>
+</div>
+<hr>
+<!--toggle bottom-->
+
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Toggle bottom offcanvas</button>
+
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body small">
+    My name is Muhammad Ishaq khan I am a frontend web-developer!
+  </div>
+</div>
+
+</div>  </body>
+  </html>

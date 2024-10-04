@@ -1,0 +1,68 @@
+.container-fluid{color:white;
+background-color: rgba(0, 0, 0, 0.8);
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: large;
+font-style: italic;
+word-spacing: 2px;
+letter-spacing: 2px;}
+.darkbg{background-color: rgba(0, 0, 0, 0.6);}
+.color{color: rgba(255, 255, 255, 0.9);}
+.form2{border-radius: 20px;
+width: 325px;
+margin: 20px 33%;
+padding: 20px 20px;
+background-image:
+ url(https://png.pngtree.com/thumb_back/fh260/background/20210902/pngtree-abstract-glass-morphism-image_776730.jpg);}
+h1{border-radius: 20px;
+text-transform: capitalize;
+text-shadow: 2px 2px red;
+text-align: center;}
+.img{border-radius: 10px;}
+.botton{border-radius: 20px;
+width: 70px;
+padding: 3px 3px;
+background-color: lightblue;
+color: blue;}
+.or{border-radius: 20px;
+width: 50px;
+margin: 0 10px;}
+.botton2{border-radius: 20px;
+width: 200px;
+padding: 3px 3px;
+background-color:lightblue;
+color: blue;}
+.img2{border: 20px;
+margin: 2px 2px;}
+.img3{border: 20px;
+margin: 2px 5px;}
+.img4{border: 20px;
+margin: 2px 2px;}
+.parag{border: 2px;
+width: 400px;
+margin: 2px 33.3%;
+text-align: center;
+color: blue;}
+#para{border: 2px;
+width: 480px;
+margin:2px 33.3%;
+text-transform: capitalize;
+color: white;
+text-shadow: 2px 2px black;}
+#button{border-radius: 20px;
+width: 70px;
+background-color: yellowgreen;}
+.input5{background-color: aquamarine;}
+.example{
+padding: 10px;
+font-size: 17px;
+border-radius: 20px;
+float: left;
+width: 20%;
+background: yellowgreen;
+}
+.input3{background-color:lightblue;
+color:red;}
+.navbar, .navbar-expand-lg, .bg-body-tertiary{display: flex;
+flex: row;
+position: sticky;
+top:0;}

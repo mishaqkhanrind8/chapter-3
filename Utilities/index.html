@@ -1,0 +1,2283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilities</title>
+
+    <link href="../../Bootstrap/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <style>
+        h1,h2,h3{color: rgba(0, 0, 0, 0.7);
+        text-transform: capitalize;}
+    </style>
+    <script src="../../Bootstrap/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="text-bg-primary bg-gradient p-2 border-0">
+    <div class="container-fluid">
+
+<h1 class="text-center">Background</h1>
+
+<p>Convey meaning through background-color and add decoration with gradients.</p>
+
+<p class="col-md-7 mx-auto"> <strong> Accessibility tip:</strong> Using color to add meaning only provides a visual indication,
+     which will not be conveyed to users of
+     assistive technologies like screen readers. Please ensure the meaning is obvious from the content itself (e.g., the
+      visible text with a sufficient color contrast) or is included through alternative means, such as additional text hidden
+       with the .visually-hidden class.</p>
+
+       <h3>background-color</h3>
+
+       <p>Similar to the contextual text color classes, set the background of an element to any contextual class. Background 
+        utilities do not set color, so in some case  you’ll want to use .text-* color utilities.</p>
+
+        <p class="col-md-7 mx-auto">Background utilities like .bg-* that generated from our original $theme-colors Sass map don’t
+             yet respond to color modes, however, any .bg-*-subtle utility will. This will be resolved in v6</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0">
+    <div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
+    <div class="p-3 mb-2 bg-primary-subtle text-primary-emphasis">.bg-primary-subtle</div>
+    <div class="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>
+    <div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis">.bg-secondary-subtle</div>
+    <div class="p-3 mb-2 bg-success text-white">.bg-success</div>
+    <div class="p-3 mb-2 bg-success-subtle text-success-emphasis">.bg-success-subtle</div>
+    <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
+    <div class="p-3 mb-2 bg-danger-subtle text-danger-emphasis">.bg-danger-subtle</div>
+    <div class="p-3 mb-2 bg-warning text-dark">.bg-warning</div>
+    <div class="p-3 mb-2 bg-warning-subtle text-warning-emphasis">.bg-warning-subtle</div>
+    <div class="p-3 mb-2 bg-info text-dark">.bg-info</div>
+    <div class="p-3 mb-2 bg-info-subtle text-info-emphasis">.bg-info-subtle</div>
+    <div class="p-3 mb-2 bg-light text-dark">.bg-light</div>
+    <div class="p-3 mb-2 bg-light-subtle text-light-emphasis">.bg-light-subtle</div>
+    <div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
+    <div class="p-3 mb-2 bg-dark-subtle text-dark-emphasis">.bg-dark-subtle</div>
+    <div class="p-3 mb-2 bg-body-secondary">.bg-body-secondary</div>
+    <div class="p-3 mb-2 bg-body-tertiary">.bg-body-tertiary</div>
+    <div class="p-3 mb-2 bg-body text-body">.bg-body</div>
+    <div class="p-3 mb-2 bg-black text-white">.bg-black</div>
+    <div class="p-3 mb-2 bg-white text-dark">.bg-white</div>
+    <div class="p-3 mb-2 bg-transparent text-body">.bg-transparent</div>
+      </div>
+    <!-- End Example Code -->
+
+<h3>background gradient</h3>
+
+<p>By adding a .bg-gradient class, a linear gradient is added as background image to the backgrounds. This gradient starts with
+     a semi-transparent white which fades out to the bottom.
+     Do you need a gradient in your custom CSS? Just add background-image: var(--bs-gradient);.
+  </p>
+
+    <!--example of code-->
+
+<div class="bg-primary bg-gradient"><p> Do you need a gradient in your custom CSS? Just add background-image: var(--bs-gradient);.
+</p></div>
+<div class="p-3 mb-2 bg-secondary bg-gradient">.bg-secondary-subtle</div>
+<div class="p-3 mb-2 bg-success bg-gradient">.bg-success</div>
+<div class="p-3 mb-2 bg-dark bg-gradient">.bg-success-subtle</div>
+<div class="p-3 mb-2 bg-danger bg-gradient">.bg-danger</div>
+<!--end of example-->
+
+<h3>opacity</h3>
+
+<p>As of v5.1.0, background-color utilities are generated with Sass using CSS variables. This allows for real-time color changes
+     without compilation and dynamic alpha transparency changes.</p>
+
+<h4>how it works</h4>
+
+<p>Consider our default .bg-success utility.
+    We use an RGB version of our --bs-success (with the value of 25, 135, 84) CSS variable and attached a second CSS variable,
+     --bs-bg-opacity, for the alpha transparency (with a default value 1 thanks to a local CSS variable). That means anytime you
+      use .bg-success now, your computed color value is rgba(25, 135, 84, 1). The local CSS variable inside each .bg-* class 
+      avoids inheritance issues so nested instances of the utilities don’t automatically have a modified alpha transparency.
+</p>
+
+<h3>example</h3>
+
+<p>To change that opacity, override --bs-bg-opacity via custom styles or inline styles.</p>
+
+<!--example of code-->
+
+<div class="bg-success p-2 text-white">This is default success background</div>
+<div class="bg-success p-2" style="--bs-bg-opacity: .5;">This is 50% opacity success background</div>
+
+<p>Or, choose from any of the .bg-opacity utilities:</p>
+
+<!--example 2-->
+
+<div class="bg-success p-2 text-white">This is default success background</div>
+<div class="bg-success p-2 text-white bg-opacity-75">This is 75% opacity success background</div>
+<div class="bg-success p-2 text-dark bg-opacity-50">This is 50% opacity success background</div>
+<div class="bg-success p-2 text-dark bg-opacity-25">This is 25% opacity success background</div>
+<div class="bg-success p-2 text-dark bg-opacity-10">This is 10% opacity success background</div>
+
+<!--end of examples-->
+
+<h1 class="text-center">border</h1>
+
+<p>Use border utilities to add or remove an element’s borders. Choose from all borders or one at a time.</p>
+
+<h3>additive</h3>
+
+<p>Add borders to custom elements:</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-border-utils">
+    <span class="border border-dark"></span>
+    <span class="border-top"></span>
+    <span class="border-end"></span>
+    <span class="border-bottom"></span>
+    <span class="border-start"></span>
+    
+</div>
+<!--end of example-->
+
+<h3>subtractive</h3>
+
+<p>Or remove borders:</p>
+
+<!--example of comde-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-border-utils">
+    <span class="border border-dark"></span>
+<span class="border border-top-0"></span>
+<span class="border border-end-0"></span>
+<span class="border border-bottom-0"></span>
+<span class="border border-start-0"></span>
+</div>
+<!--end of code-->
+
+<h3>color</h3>
+
+<p class=" col-md-7 mx-auto bg-primary bg-gradient p-3">Border utilities like .border-* that generated from our original $theme-colors Sass map don’t yet respond to color modes,
+ however, any .border-*-subtle utility will. This will be resolved in v6.</p>
+
+ <p>Change the border color using utilities built on our theme colors.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-border-utils">
+    <span class="border border-primary"></span>
+    <span class="border border-primary-subtle"></span>
+    <span class="border border-secondary"></span>
+    <span class="border border-secondary-subtle"></span>
+    <span class="border border-success"></span>
+    <span class="border border-success-subtle"></span>
+    <span class="border border-danger"></span>
+    <span class="border border-danger-subtle"></span>
+    <span class="border border-warning"></span>
+    <span class="border border-warning-subtle"></span>
+    <span class="border border-info"></span>
+    <span class="border border-info-subtle"></span>
+    <span class="border border-light"></span>
+    <span class="border border-light-subtle"></span>
+    <span class="border border-dark"></span>
+    <span class="border border-dark-subtle"></span>
+    <span class="border border-black"></span>
+    <span class="border border-white"></span>
+</div>
+
+<!--end of code-->
+
+<p>Or modify the default border-color of a component:</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bg-dark">
+    <div class="mb-4">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control border-success" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      
+      <div class="h4 pb-2 mb-4 text-danger border-bottom border-danger">
+        Dangerous heading
+      </div>
+      
+      <div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+        Changing border color and width
+      </div>
+</div>
+<!--end of code-->
+
+<h3>opacity</h3>
+
+<p>Bootstrap border-{color} utilities are generated with Sass using CSS variables. This allows for real-time color changes without
+     compilation and dynamic alpha transparency changes.</p>
+
+<h3>how it works</h3>
+
+<p>Consider our default .border-success utility.
+    We use an RGB version of our --bs-success (with the value of 25, 135, 84) CSS variable and attached a second CSS variable,
+     --bs-border-opacity, for the alpha transparency (with a default value 1 thanks to a local CSS variable). That means anytime
+      you use .border-success now, your computed color value is rgba(25, 135, 84, 1). The local CSS variable inside each 
+      .border-* class avoids inheritance issues so nested instances of the utilities don’t automatically have a modified alpha 
+      transparency.
+</p>
+
+<h4>example</h4>
+
+<p>To change that opacity, override --bs-border-opacity via custom styles or inline styles.</p>
+
+<!--example of code-->
+<div class="bg-dark p-2">
+<div class="border border-success p-2 mb-2">This is default success border</div>
+<div class="border border-success p-2" style="--bs-border-opacity: .5;">This is 50% opacity success border</div>
+</div>
+<p>Or, choose from any of the .border-opacity utilities:</p>
+<div class="bg-dark p-2">
+<div class="border border-success p-2 mb-2">This is default success border</div>
+<div class="border border-success p-2 mb-2 border-opacity-75">This is 75% opacity success border</div>
+<div class="border border-success p-2 mb-2 border-opacity-50">This is 50% opacity success border</div>
+<div class="border border-success p-2 mb-2 border-opacity-25">This is 25% opacity success border</div>
+<div class="border border-success p-2 border-opacity-10">This is 10% opacity success border</div>
+</div>
+
+<!--end of code-->
+
+<h3>width</h3>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-border-utils">
+         
+    <span class="border border-1"></span>
+    <span class="border border-danger border-2"></span>
+    <span class="border border-3"></span>
+    <span class="border border-4"></span>
+    <span class="border border-info border-5"></span>
+</div>
+
+<h3>radius</h3>
+
+<p>Add classes to an element to easily round its corners.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-rounded-utils">
+    <svg class="bd-placeholder-img rounded" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" 
+    aria-label="Example rounded image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <title>Example rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect>
+    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">75x75</text></svg>
+   
+    <svg class="bd-placeholder-img rounded-top" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="Example top rounded image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false">
+     <title>Example top rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect>
+     <text x="50%" y="50%" fill="#dee2e6" dy=".3em">75x75</text></svg>
+  
+     <svg class="bd-placeholder-img rounded-end" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" 
+    aria-label="Example right rounded image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <title>Example right rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect>
+    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">75x75</text></svg>
+  
+    <svg class="bd-placeholder-img rounded-bottom" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" 
+    aria-label="Example bottom rounded image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <title>Example bottom rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect>
+    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">75x75</text></svg>
+  
+    <svg class="bd-placeholder-img rounded-start" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" 
+    aria-label="Example left rounded image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <title>Example left rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect>
+    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">75x75</text></svg>
+ 
+    <svg class="bd-placeholder-img rounded-circle" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" 
+    aria-label="Completely round image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <title>Completely round image</title><rect width="100%" height="100%" fill="#868e96"></rect>
+    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">75x75</text></svg>
+ 
+    <svg class="bd-placeholder-img rounded-pill" width="150" height="75" xmlns="http://www.w3.org/2000/svg" role="img" 
+    aria-label="Rounded pill image: 150x75" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <title>Rounded pill image</title><rect width="100%" height="100%" fill="#868e96"></rect>
+    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">150x75</text></svg>
+</div>
+<!--end of example code-->
+
+<h3>sizes</h3>
+
+<p>Use the scaling classes for larger or smaller rounded corners. Sizes range from 0 to 5, and can be configured by modifying
+     the utilities API</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-rounded-utils">
+    <img width="100px" height="75px" src="../assest/slider img 3 .jpg.jpg" class="rounded-0" alt="browser not supported">
+<img width="100px" height="75px" src="../assest/slider img.jpg" class="rounded-1" alt="browser not supported">
+<img width="100px" height="75px" src="../assest/slider img.jpg.jpg" class="rounded-2" alt="browser not supported">
+<img width="100px" height="75px" src="../assest/rgb theme.jpg" class="rounded-3" alt="browser not supported">
+<img width="100px" height="75px" src="../assest/airpodes4.jpg" class="rounded-4" alt="browser not supported">
+<img width="100px" height="75px" src="../assest/main.jpg" class="rounded-5" alt="browser not supported">
+</div>
+
+<!--example 2-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-rounded-utils">
+    <img width="100px" height="75px" src="../assest/slider img 3 .jpg.jpg" class="rounded" alt="browser not supported">
+<img width="100px" height="75px" src="../assest/slider img.jpg" class="rounded-top" alt="browser not supported">
+<img width="100px" height="75px" src="../assest/slider img.jpg.jpg" class="rounded-start" alt="browser not supported">
+<img width="100px" height="75px" src="../assest/rgb theme.jpg" class="rounded-end" alt="browser not supported">
+<img width="100px" height="75px" src="../assest/airpodes4.jpg" class="rounded-circle" alt="browser not supported">
+<img width="100px" height="75px" src="../assest/main.jpg" class="rounded-bottom" alt="browser not supported">
+</div>
+
+<!--end of code-->
+
+<h1 class="text-center">colors</h1>
+
+<p>Convey meaning through color with a handful of color utility classes. Includes support for styling links with
+     hover states, too.</p>
+
+<p class="col-md-8 mx-auto p-3 rounded bg-primary bg-gradient"><strong> Accessibility tip:</strong> Using color to add meaning only
+     provides a visual indication, which will not be conveyed to users of 
+    assistive technologies like screen readers. Please ensure the meaning is obvious from the content itself (e.g., the visible
+     text with a sufficient color contrast) or is included through alternative means, such as additional text hidden with the
+      .visually-hidden class.</p>
+
+<h3>colors</h3>
+
+<p>Colorize text with color utilities. If you want to colorize links, you can use the .link-* helper classes which have :hover and
+     :focus states.</p>
+
+<p class="col-md-8 mx-auto p-3 rounded bg-primary bg-gradient">Color utilities like .text-* that generated from our original
+     $theme-colors Sass map don’t yet respond to color modes, however, any .text-*-emphasis utility will. This will be resolved 
+     in v6.</p>
+
+<!--exmaple of code-->
+
+<div  class="p-3 m-0 border-0 bd-example m-0 border-0 text-bg-light col-md-8 mx-auto">
+      
+    <p class="text-primary">.text-primary</p>
+    <p class="text-primary-emphasis">.text-primary-emphasis</p>
+    <p class="text-secondary">.text-secondary</p>
+    <p class="text-secondary-emphasis">.text-secondary-emphasis</p>
+    <p class="text-success">.text-success</p>
+    <p class="text-success-emphasis">.text-success-emphasis</p>
+    <p class="text-danger">.text-danger</p>
+    <p class="text-danger-emphasis">.text-danger-emphasis</p>
+    <p class="text-warning bg-dark">.text-warning</p>
+    <p class="text-warning-emphasis">.text-warning-emphasis</p>
+    <p class="text-info bg-dark">.text-info</p>
+    <p class="text-info-emphasis">.text-info-emphasis</p>
+    <p class="text-light bg-dark">.text-light</p>
+    <p class="text-light-emphasis">.text-light-emphasis</p>
+    <p class="text-dark bg-white">.text-dark</p>
+    <p class="text-dark-emphasis">.text-dark-emphasis</p>
+    
+    <p class="text-body">.text-body</p>
+    <p class="text-body-emphasis">.text-body-emphasis</p>
+    <p class="text-body-secondary">.text-body-secondary</p>
+    <p class="text-body-tertiary">.text-body-tertiary</p>
+    
+    <p class="text-black bg-white">.text-black</p>
+    <p class="text-white bg-dark">.text-white</p>
+    <p class="text-black-50 bg-white">.text-black-50</p>
+    <p class="text-white-50 bg-dark">.text-white-50</p>
+     </div>
+    <!--end of code-->
+
+    <p> <strong>Deprecation:</strong> With the addition of .text-opacity-* utilities and CSS variables for text utilities,
+         .text-black-50 and
+         .text-white-50 are deprecated as of v5.1.0. They’ll be removed in v6.0.0.</p> <br>
+<p><strong> Deprecation:</strong> With the addition of the expanded theme colors and variables, the .text-muted utility has
+     been deprecated as 
+    of v5.3.0. Its default value has also been reassigned to the new --bs-secondary-color CSS variable to better support color
+     modes. It will be removed in v6.0.0.</p>
+
+     <h3>opacity</h3>
+
+     <p>As of v5.1.0, text color utilities are generated with Sass using CSS variables. This allows for real-time color changes
+         without compilation and dynamic alpha transparency changes.</p>
+
+<h3>how it works</h3>
+
+<p>Consider our default .text-primary utility.
+    <br>
+    We use an RGB version of our --bs-primary (with the value of 13, 110, 253) CSS variable and attached a second CSS variable,
+     --bs-text-opacity, for the alpha transparency (with a default value 1 thanks to a local CSS variable). That means anytime 
+     you use .text-primary now, your computed color value is rgba(13, 110, 253, 1). The local CSS variable inside each 
+     .text-* class avoids inheritance issues so nested instances of the utilities don’t automatically have a modified alpha
+      transparency.
+</p>
+
+<h4>example</h4>
+
+<p>To change that opacity, override --bs-text-opacity via custom styles or inline styles.</p>
+
+<!--example of code-->
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 text-bg-dark">
+<div class="text-primary">This is default primary text</div>
+    <div class="text-primary" style="--bs-text-opacity: .5;">This is 50% opacity primary text</div>
+</div>
+
+<br>
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 text-bg-dark">
+    <div class="text-primary">This is default primary text</div>
+<div class="text-primary text-opacity-75">This is 75% opacity primary text</div>
+<div class="text-primary text-opacity-50">This is 50% opacity primary text</div>
+<div class="text-primary text-opacity-25">This is 25% opacity primary text</div>
+</div>
+
+<!--end of example-->
+
+<h3>spacificity</h3>
+
+<p>Sometimes contextual classes cannot be applied due to the specificity of another selector. In some cases, a sufficient
+     workaround is to wrap your element’s content in a &lt;div&gt; or more semantic element with the desired class.</p>
+
+<h1 class="text-center">display property</h1>
+
+<p>Quickly and responsively toggle the display value of components and more with our display utilities. Includes support for 
+    some of the more common values, as well as some extras for controlling display when printing.</p>
+
+<h3>how it works</h3>
+
+<p>Change the value of the display property with our responsive display utility classes. We purposely support only a subset
+     of all possible values for display. Classes can be combined for various effects as you need.</p>
+
+<h3>notation</h3>
+
+<p>Display utility classes that apply to all breakpoints, from xs to xxl, have no breakpoint abbreviation in them. This is 
+    because those classes are applied from min-width: 0; and up, and thus are not bound by a media query. The remaining
+     breakpoints, however, do include a breakpoint abbreviation.
+
+    As such, the classes are named using the format:</p>
+
+<ul><li> .d-{value} for xs</li>
+<li> .d-{breakpoint}-{value} for sm, md, lg, xl, and xxl.</li>
+Where value is one of:
+<li>none</li>
+<li>inline</li>
+<li>inline-block</li>
+<li>block</li>
+<li>grid</li>
+<li>inline-grid</li>
+<li>table</li>
+<li>inline-table</li>
+<li>flex</li>
+<li>inline-flex</li>
+</ul>
+
+<p>The display values can be altered by changing the display values defined in $utilities and recompiling the SCSS.
+
+    The media queries affect screen widths with the given breakpoint or larger. For example, .d-lg-none sets display: none;
+     on lg, xl, and xxl screens.</p>
+
+
+     <!--exmaple of code-->
+
+     <div class="p-3 m-0 border-0 bd-example m-0 border-0 text-bg-dark">
+        <div class="d-inline p-2 text-bg-primary">d-inline</div>
+<div class="d-inline p-2 text-bg-success">d-inline</div>
+     </div>
+<br>
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 text-bg-dark">
+<span class="d-block p-2 text-bg-primary">d-block</span>
+<span class="d-block p-2 text-bg-success">d-block</span>
+</div>
+<!--end of example-->
+
+<h3>hiding elements</h3>
+
+<p>For faster mobile-friendly development, use responsive display classes for showing and hiding elements by device. Avoid
+     creating entirely different versions of the same site, instead hide elements responsively for each screen size.
+
+    To hide elements simply use the .d-none class or one of the .d-{sm,md,lg,xl,xxl}-none classes for any responsive screen
+     variation.
+    
+    To show an element only on a given interval of screen sizes you can combine one .d-*-none class with a .d-*-* class,
+     for example .d-none .d-md-block .d-xl-none .d-xxl-none will hide the element for all screen sizes except on medium 
+     and large devices.</p>
+<div class="col-md-8 mx-auto p-3 rounded">
+<table class="table"><tr><th>screen sizes</th>
+<th>classes</th></tr>
+<tr><td>hide on all</td> <td>.d-none</td></tr>
+<tr><td>hidden only on xs</td> <td>	.d-none .d-sm-block</td></tr>
+<tr><td>Hidden only on sm</td><td>	.d-sm-none .d-md-block</td></tr> 
+<tr><td>Hidden only on md</td><td>.d-md-none .d-lg-block</td></tr>	
+<tr><td>Hidden only on lg</td><td>.d-lg-none .d-xl-block</td></tr>	
+<tr><td>Hidden only on xl</td><td>.d-xl-none .d-xxl-block</td></tr>	
+<tr><td>Hidden only on xxl</td><td>.d-xxl-none</td></tr>	
+<tr><td>Visible on all</td><td>.d-block</td></tr>	
+<tr><td>Visible only on xs</td><td>.d-block .d-sm-none</td></tr>	
+<tr><td>Visible only on sm	</td><td>.d-none .d-sm-block .d-md-none</td></tr>
+<tr><td>Visible only on md</td><td>.d-none .d-md-block .d-lg-none</td></tr>	
+<tr><td>Visible only on lg	</td><td>.d-none .d-lg-block .d-xl-none</td></tr>
+<tr><td>Visible only on xl</td><td>.d-none .d-xl-block .d-xxl-none</td></tr>	
+<tr><td>Visible only on xxl</td><td>	.d-none .d-xxl-block</td></tr>
+</table>
+</div>
+
+<!--example of code-->
+
+<div class="d-lg-none"> <img width="200px" height="175px" src="../assest/slider img.jpg" alt=""><p> hide on lg and wider
+     screens</p></div>
+<div class="d-none d-lg-block"> <img width="200px" height="175px" src="../assest/slider img 3 .jpg.jpg" alt=""><p>
+     hide on screens smaller than lg</p></div>
+
+<h3>display in print</h3>
+
+<p>Change the display value of elements when printing with our print display utility classes. Includes support for the 
+    same display values as our responsive .d-* utilities.</p>
+
+<ul><li>.d-print-none</li>
+    <li> .d-print-inline</li>
+    <li>  .d-print-inline-block</li>
+    <li>  .d-print-block</li>
+    <li> .d-print-grid</li>
+    <li> .d-print-inline-grid</li>
+    <li>.d-print-table</li>
+    <li> .d-print-table-row</li>
+    <li> .d-print-table-cell</li>
+    <li> .d-print-flex</li>
+    <li> .d-print-inline-flex</li>
+</ul>
+
+<p>The print and display classes can be combined.</p>
+
+<!--example of code-->
+
+<div class="d-print-none">Screen Only (Hide on print only)</div>
+<div class="d-none d-print-block">Print Only (Hide on screen only)</div>
+<div class="d-none d-lg-block d-print-block">Hide up to large on screen, but always show on print</div>
+<!--end of example -->
+
+<h1 class="text-center">flex</h1>
+
+<p>Quickly manage the layout, alignment, and sizing of grid columns, navigation, components, and more with a full suite of
+     responsive flexbox utilities. For more complex implementations, custom CSS may be necessary.</p>
+
+<h3>enable flex behaviour</h3>
+
+<p>Apply display utilities to create a flexbox container and transform direct children elements into flex items. Flex containers
+     and items are able to be modified further with additional flex properties.</p>
+
+<!--exmaple of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+    <div class="d-flex p-2">I'm a flexbox container!</div>
+</div>
+
+<div  class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+<div class="d-inline-flex p-2">I'm an inline flexbox container!</div>
+</div>
+
+<!--end of code-->
+
+<p>Responsive variations also exist for .d-flex and .d-inline-flex.</p>
+
+<ul><li> .d-flex</li>
+    <li>.d-inline-flex</li>
+    <li>.d-sm-flex</li>
+    <li>.d-sm-inline-flex</li>
+    <li>.d-md-flex</li>
+    <li>.d-md-inline-flex</li>
+    <li>.d-lg-flex</li>
+    <li>.d-lg-inline-flex</li>
+    <li>.d-xl-flex</li>
+    <li>.d-xl-inline-flex</li>
+    <li>.d-xxl-flex</li>
+    <li>.d-xxl-inline-flex</li>
+   </ul>
+
+<h3>direction</h3>
+
+<p>Set the direction of flex items in a flex container with direction utilities. In most cases you can omit the horizontal class
+     here as the browser default is row. However, you may encounter situations where you needed to explicitly set this value
+      (like responsive layouts).
+
+    Use .flex-row to set a horizontal direction (the browser default), or .flex-row-reverse to start the horizontal direction
+     from the opposite side.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+<div class="d-flex flex-row mb-3">
+    <div class="p-2">Flex item 1</div>
+    <div class="p-2">Flex item 2</div>
+    <div class="p-2">Flex item 3</div>
+  </div>
+  <!--reverse-->
+  <div class="d-flex flex-row-reverse">
+    <div class="p-2">Flex item 1</div>
+    <div class="p-2">Flex item 2</div>
+    <div class="p-2">Flex item 3</div>
+  </div>
+</div>
+<!--end of code-->
+
+<p>Use .flex-column to set a vertical direction, or .flex-column-reverse to start the vertical direction from the opposite side.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+<div class="d-flex flex-column mb-3">
+    <div class="p-2">Flex item 1</div>
+    <div class="p-2">Flex item 2</div>
+    <div class="p-2">Flex item 3</div>
+  </div>
+  <!--reverse-->
+  <div class="d-flex flex-column-reverse">
+    <div class="p-2">Flex item 1</div>
+    <div class="p-2">Flex item 2</div>
+    <div class="p-2">Flex item 3</div>
+  </div>
+</div>
+<!--end of code-->
+
+<p>Responsive variations also exist for flex-direction.</p>
+
+<ul><li>.flex-row</li>
+    <li>.flex-row-reverse</li>
+    <li>.flex-column</li>
+    <li>.flex-column-reverse</li>
+    <li>.flex-sm-row</li>
+    <li>.flex-sm-row-reverse</li>
+    <li>.flex-sm-column</li>
+    <li>.flex-sm-column-reverse</li>
+    <li>.flex-md-row</li>
+    <li>.flex-md-row-reverse</li>
+    <li>.flex-md-column</li>
+    <li>.flex-md-column-reverse</li>
+    <li>.flex-lg-row</li>
+    <li>.flex-lg-row-reverse</li>
+    <li>.flex-lg-column</li>
+    <li>.flex-lg-column-reverse</li>
+    <li>.flex-xl-row</li>
+    <li>.flex-xl-row-reverse</li>
+    <li>.flex-xl-column</li>
+    <li>.flex-xl-column-reverse</li>
+    <li>.flex-xxl-row</li>
+    <li>.flex-xxl-row-reverse</li>
+    <li>.flex-xxl-column</li>
+    <li>.flex-xxl-column-reverse</li>
+</ul>
+
+<h3>justify content</h3>
+
+<p>Use justify-content utilities on flexbox containers to change the alignment of flex items on the main axis (the x-axis to
+     start, y-axis if flex-direction: column). Choose from start (browser default), end, center, between, around, or evenly.</p>
+
+<!--example of code-->
+
+<div  class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+<div class="d-flex justify-content-start">Use justify-content utilities on flexbox containers  </div>
+<div class="d-flex justify-content-end">Use justify-content utilities on flexbox containers  </div>
+<div class="d-flex justify-content-center">Use justify-content utilities on flexbox containers </div>
+<div class="d-flex justify-content-between">Use justify-content utilities on flexbox containers </div>
+<div class="d-flex justify-content-around">Use justify-content utilities on flexbox containers </div>
+<div class="d-flex justify-content-evenly">Use justify-content utilities on flexbox containers  </div>
+</div>
+
+<!--end of code-->
+
+<p>Responsive variations also exist for justify-content.</p>
+
+<ul>
+    <li>.justify-content-start</li>
+    <li>.justify-content-end</li>
+    <li>.justify-content-center</li>
+    <li>.justify-content-between</li>
+    <li>.justify-content-around</li>
+    <li>.justify-content-evenly</li>
+    <li>.justify-content-sm-start</li>
+    <li>.justify-content-sm-end</li>
+    <li>.justify-content-sm-center</li>
+    <li>.justify-content-sm-between</li>
+    <li>.justify-content-sm-around</li>
+    <li>.justify-content-sm-evenly</li>
+    <li>.justify-content-md-start</li>
+    <li>.justify-content-md-end</li>
+    <li>.justify-content-md-center</li>
+    <li>.justify-content-md-between</li>
+    <li>.justify-content-md-around</li>
+    <li>.justify-content-md-evenly</li>
+    <li>.justify-content-lg-start</li>
+    <li>.justify-content-lg-end</li>
+    <li>.justify-content-lg-center</li>
+    <li>.justify-content-lg-between</li>
+    <li>.justify-content-lg-around</li>
+    <li>.justify-content-lg-evenly</li>
+    <li>.justify-content-xl-start</li>
+    <li>.justify-content-xl-end</li>
+    <li>.justify-content-xl-center</li>
+    <li>.justify-content-xl-between</li>
+    <li>.justify-content-xl-around</li>
+    <li>.justify-content-xl-evenly</li>
+    <li>.justify-content-xxl-start</li>
+    <li>.justify-content-xxl-end</li>
+    <li>.justify-content-xxl-center</li>
+    <li>.justify-content-xxl-between</li>
+    <li>.justify-content-xxl-around</li>
+    <li>.justify-content-xxl-evenly</li>
+</ul>
+
+<h3>align items</h3>
+
+<p>Use align-items utilities on flexbox containers to change the alignment of flex items on the cross axis (the y-axis to start,
+     x-axis if flex-direction: column). Choose from start, end, center, baseline, or stretch (browser default).</p>
+
+<!--example of code-->
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex ">
+<div class="d-flex  align-items-start">Use align-items utilities on flexbox containers </div>
+<div class="d-flex  align-items-end">Use align-items utilities on flexbox containers </div>
+<div class="d-flex align-items-center">Use align-items utilities on flexbox containers </div>
+<div class="d-flex align-items-baseline">Use align-items utilities on flexbox containers </div>
+<div class="d-flex align-items-stretch">Use align-items utilities on flexbox containers </div>
+</div>
+
+<p>Responsive variations also exist for justify-content.</p>
+
+<ul>
+<li>.align-items-start</li>
+<li>.align-items-end</li>
+<li>.align-items-center</li>
+<li>.align-items-baseline</li>
+<li>.align-items-stretch</li>
+<li>.align-items-sm-start</li>
+<li>.align-items-sm-end</li>
+<li>.align-items-sm-center</li>
+<li>.align-items-sm-baseline</li>
+<li>.align-items-sm-stretch</li>
+<li>.align-items-md-start</li>
+<li>.align-items-md-end</li>
+<li>.align-items-md-center</li>
+<li>.align-items-md-baseline</li>
+<li>.align-items-md-stretch</li>
+<li>.align-items-lg-start</li>
+<li>.align-items-lg-end</li>
+<li>.align-items-lg-center</li>
+<li>.align-items-lg-baseline</li>
+<li>.align-items-lg-stretch</li>
+<li>.align-items-xl-start</li>
+<li>.align-items-xl-end</li>
+<li>.align-items-xl-center</li>
+<li>.align-items-xl-baseline</li>
+<li>.align-items-xl-stretch</li>
+<li>.align-items-xxl-start</li>
+<li>.align-items-xxl-end</li>
+<li>.align-items-xxl-center</li>
+<li>.align-items-xxl-baseline</li>
+<li>.align-items-xxl-stretch</li>
+</ul>
+
+<h3>align self</h3>
+
+<p>Use align-self utilities on flexbox items to individually change their alignment on the cross axis (the y-axis to start, 
+    x-axis if flex-direction: column). Choose from the same options as align-items: start, end, center, baseline, or stretch
+     (browser default).</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex ">
+<div class="align-self-start">Aligned flex item</div>
+<div class="align-self-end">Aligned flex item</div>
+<div class="align-self-center">Aligned flex item</div>
+<div class="align-self-baseline">Aligned flex item</div>
+<div class="align-self-stretch">Aligned flex item</div>
+</div>
+
+<!--end of code-->
+
+<p>Responsive variations also exist for align-self.</p>
+
+<ul><li>  .align-self-start</li>
+    <li>.align-self-end</li>
+    <li>.align-self-center</li>
+    <li>  .align-self-baseline</li>
+    <li>.align-self-stretch</li>
+    <li>.align-self-sm-start</li>
+    <li>.align-self-sm-end</li>
+    <li>.align-self-sm-center</li>
+    <li>.align-self-sm-baseline</li>
+    <li>.align-self-sm-stretch</li>
+    <li>.align-self-md-start</li>
+    <li>.align-self-md-end</li>
+    <li>.align-self-md-center</li>
+    <li>.align-self-md-baseline</li>
+    <li>.align-self-md-stretch</li>
+    <li>.align-self-lg-start</li>
+    <li>.align-self-lg-end</li>
+    <li>.align-self-lg-center</li>
+    <li>.align-self-lg-baseline</li>
+    <li>.align-self-lg-stretch</li>
+    <li>.align-self-xl-start</li>
+    <li>.align-self-xl-end</li>
+    <li>.align-self-xl-center</li>
+    <li>.align-self-xl-baseline</li>
+    <li>.align-self-xl-stretch</li>
+    <li>.align-self-xxl-start</li>
+    <li>.align-self-xxl-end</li>
+    <li>.align-self-xxl-center</li>
+    <li>.align-self-xxl-baseline</li>
+    <li>.align-self-xxl-stretch</li>
+    </ul>
+
+<h3>fill</h3>
+
+<p>Use the .flex-fill class on a series of sibling elements to force them into widths equal to their content (or equal widths
+     if their content does not surpass their border-boxes) while taking up all available horizontal space.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+    <div class="d-flex">
+        <div class="p-2 flex-fill">Flex item with a lot of content</div>
+        <div class="p-2 flex-fill">Flex item</div>
+        <div class="p-2 flex-fill">Flex item</div>
+      </div>
+</div>
+<!--end of code-->
+
+<p>Responsive variations also exist for flex-fill.</p>
+
+<ul><li>.flex-fill</li>
+    <li>.flex-sm-fill</li>
+    <li>.flex-md-fill</li>
+    <li>.flex-lg-fill</li>
+    <li>.flex-xl-fill</li>
+    <li>.flex-xxl-fill</li>
+</ul>
+
+<h3>grow and shrink</h3>
+
+<p>Use .flex-grow-* utilities to toggle a flex item’s ability to grow to fill available space. In the example below, the
+     .flex-grow-1 elements uses all available space it can, while allowing the remaining two flex items their necessary space.</p>
+
+     <!--example of code-->
+
+     <div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+     <div class="d-flex">
+        <div class="p-2 flex-grow-1">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="p-2">Third flex item</div>
+      </div>
+    </div>
+
+    <p>Use .flex-shrink-* utilities to toggle a flex item’s ability to shrink if necessary. In the example below, the second
+         flex item with .flex-shrink-1 is forced to wrap its contents to a new line, “shrinking” to allow more space for the
+          previous flex item with .w-100.</p>
+
+          <!--example of code-->
+
+          <div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+          <div class="d-flex">
+            <div class="p-2 w-100">Flex item</div>
+            <div class="p-2 flex-shrink-1">Flex item</div>
+          </div></div>
+
+<!--end of code-->
+
+<p>Responsive variations also exist for flex-grow and flex-shrink.</p>
+
+<ul><li>   .flex-{grow|shrink}-0</li>
+    <li>.flex-{grow|shrink}-1</li>
+    <li>.flex-sm-{grow|shrink}-0</li>
+    <li>.flex-sm-{grow|shrink}-1</li>
+    <li>.flex-md-{grow|shrink}-0</li>
+    <li>.flex-md-{grow|shrink}-1</li>
+    <li>.flex-lg-{grow|shrink}-0</li>
+<li>.flex-lg-{grow|shrink}-1</li>
+<li>.flex-xl-{grow|shrink}-0</li>
+<li>.flex-xl-{grow|shrink}-1</li>
+<li>.flex-xxl-{grow|shrink}-0</li>
+<li>.flex-xxl-{grow|shrink}-1</li>
+</ul>
+ 
+<h3>auto margin</h3>
+
+<p>Flexbox can do some pretty awesome things when you mix flex alignments with auto margins. Shown below are three examples
+     of controlling flex items via auto margins: default (no auto margin), pushing two items to the right (.me-auto), and
+      pushing two items to the left (.ms-auto).</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+<div class="d-flex mb-3">
+    <div class="p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+  </div>
+  
+  <div class="d-flex mb-3">
+    <div class="me-auto p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+  </div>
+  
+  <div class="d-flex mb-3">
+    <div class="p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+    <div class="ms-auto p-2">Flex item</div>
+  </div>
+</div>
+
+<h3>with align-items</h3>
+
+<p>Vertically move one flex item to the top or bottom of a container by mixing align-items, flex-direction: column, 
+    and margin-top: auto or margin-bottom: auto.</p>
+
+    <!--example of code-->
+
+    <div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+    <div class="d-flex align-items-start flex-column mb-3" style="height: 200px;">
+        <div class="mb-auto p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+      </div>
+      
+      <div class="d-flex align-items-end flex-column mb-3" style="height: 200px;">
+        <div class="p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="mt-auto p-2">Flex item</div>
+      </div>
+    </div>
+
+<!--end of code-->
+
+<h3>wrap</h3>
+
+<p>Change how flex items wrap in a flex container. Choose from no wrapping at all (the browser default) with .flex-nowrap,
+     wrapping with .flex-wrap, or reverse wrapping with .flex-wrap-reverse.</p>
+
+<!--example of code 1 nowrap-->
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+<div class="d-flex flex-nowrap">
+    <div class="p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+    <div class="mt-auto p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+  </div>
+<div class="d-flex flex-nowrap">   <div class="p-2">Flex item</div>
+<div class="p-2">Flex item</div>
+<div class="mt-auto p-2">Flex item</div>
+<div class="p-2">Flex item</div>
+<div class="p-2">Flex item</div></div></div>
+
+<!--example code   2 wrap-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+    <div class="d-flex flex-wrap">
+        <div class="p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="mt-auto p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="mt-auto p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="mt-auto p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="mt-auto p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="mt-auto p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+      </div></div>
+
+<!--example code 3 reverse-->
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+<div class="d-flex flex-wrap-reverse">
+    <div class="p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+    <div class="mt-auto p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+    <div class="mt-auto p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+    <div class="mt-auto p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+    <div class="p-2">Flex item</div>
+  </div>
+</div>
+
+<p>Responsive variations also exist for flex-wrap.</p>
+
+<ul>
+<li>.flex-nowrap</li>
+<li>.flex-wrap</li>
+<li>.flex-wrap-reverse</li>
+<li>.flex-sm-nowrap</li>
+<li>.flex-sm-wrap</li>
+<li>.flex-sm-wrap-reverse</li>
+<li>.flex-md-nowrap</li>
+<li>.flex-md-wrap</li>
+<li>.flex-md-wrap-reverse</li>
+<li>.flex-lg-nowrap</li>
+<li>.flex-lg-wrap</li>
+<li>.flex-lg-wrap-reverse</li>
+<li>.flex-xl-nowrap</li>
+<li>.flex-xl-wrap</li>
+<li>.flex-xl-wrap-reverse</li>
+<li>.flex-xxl-nowrap</li>
+<li>.flex-xxl-wrap</li>
+<li>.flex-xxl-wrap-reverse</li>
+</ul>
+
+<h3>order</h3>
+
+<p>Change the visual order of specific flex items with a handful of order utilities. We only provide options for making an
+     item first or last, as well as a reset to use the DOM order. As order takes any integer value from 0 to 5, add custom
+      CSS for any additional values needed.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+<div class="d-flex flex-nowrap">
+  <div class="order-3 p-2">First flex item</div>
+  <div class="order-2 p-2">Second flex item</div>
+  <div class="order-1 p-2">Third flex item</div>
+</div>
+</div>
+<!--end of code-->
+
+<p>Responsive variations also exist for order.</p>
+
+<ul>
+  <li>  .order-0</li>
+  <li>.order-1</li>
+  <li>.order-2</li>
+  <li>.order-3</li>
+  <li>.order-4</li>
+  <li>.order-5</li>
+  <li>.order-sm-0</li>
+  <li>.order-sm-1</li>
+  <li>.order-sm-2</li>
+  <li>.order-sm-3</li>
+  <li>.order-sm-4</li>
+  <li>.order-sm-5</li>
+  <li>.order-md-0</li>
+  <li>.order-md-1</li>
+  <li>.order-md-2</li>
+  <li>.order-md-3</li>
+  <li>.order-md-4</li>
+  <li>.order-md-5</li>
+  <li>.order-lg-0</li>
+  <li>.order-lg-1</li>
+  <li>.order-lg-2</li>
+  <li>.order-lg-3</li>
+  <li>.order-lg-4</li>
+  <li>.order-lg-5</li>
+  <li>.order-xl-0</li>
+  <li>.order-xl-1</li>
+  <li>.order-xl-2</li>
+  <li>.order-xl-3</li>
+  <li>.order-xl-4</li>
+  <li>.order-xl-5</li>
+  <li>.order-xxl-0</li>
+  <li>.order-xxl-1</li>
+  <li>.order-xxl-2</li>
+<li>.order-xxl-3</li>
+<li>.order-xxl-4</li>
+<li>.order-xxl-5</li>
+</ul>
+
+<p>Additionally there are also responsive .order-first and .order-last classes that change the order of an element by applying
+   order: -1 and order: 6, respectively.</p>
+
+<ul>
+  <li>.order-first</li>
+  <li>  .order-last</li>
+  <li>  .order-sm-first</li>
+  <li> .order-sm-last</li>
+  <li>  .order-md-first</li>
+  <li>  .order-md-last</li>
+  <li>  .order-lg-first</li>
+  <li>.order-lg-last</li>
+  <li>  .order-xl-first</li>
+  <li>  .order-xl-last</li>
+  <li>  .order-xxl-first</li>
+  <li>  .order-xxl-last</li>
+</ul>
+
+<h3>align content</h3>
+
+<p>Use align-content utilities on flexbox containers to align flex items together on the cross axis. Choose from start
+   (browser default), end, center, between, around, or stretch. To demonstrate these utilities, we’ve enforced flex-wrap:
+    wrap and increased the number of flex items.
+<br><br>
+ <strong> Heads up!</strong> This property has no effect on single rows of flex items.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+ <div class="d-flex align-content-start flex-wrap">
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>   <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>   <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+</div>
+</div>
+
+<!--exmaple of content flex end-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+<div class="d-flex align-content-end flex-wrap">
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>   <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>   <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+</div>
+</div>
+
+<!--example of align center-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+<div class="d-flex align-content-center flex-wrap">
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+</div></div>
+
+<!--example of between-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+<div class="d-flex align-content-between flex-wrap">
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+</div></div>
+
+<!--end of all king exmaples-->
+
+
+<p>Responsive variations also exist for align-content.</p>
+
+<ul><li>  .align-content-start</li>
+  <li>.align-content-end</li>
+  <li>.align-content-center</li>
+  <li>.align-content-between</li>
+  <li>.align-content-around</li>
+  <li>.align-content-stretch</li>
+  <li>.align-content-sm-start</li>
+  <li>.align-content-sm-end</li>
+  <li>.align-content-sm-center</li>
+  <li>.align-content-sm-between</li>
+  <li>.align-content-sm-around</li>
+  <li>.align-content-sm-stretch</li>
+  <li>.align-content-md-start</li>
+  <li>.align-content-md-end</li>
+  <li>.align-content-md-center</li>
+  <li>.align-content-md-between</li>
+  <li>.align-content-md-around</li>
+  <li>.align-content-md-stretch</li>
+  <li>.align-content-lg-start</li>
+  <li>.align-content-lg-end</li>
+  <li>.align-content-lg-center</li>
+  <li>.align-content-lg-between</li>
+  <li>.align-content-lg-around</li>
+  <li>.align-content-lg-stretch</li>
+  <li>.align-content-xl-start</li>
+  <li>.align-content-xl-end</li>
+  <li>.align-content-xl-center</li>
+  <li>.align-content-xl-between</li>
+  <li>.align-content-xl-around</li>
+  <li>.align-content-xl-stretch</li>
+  <li>.align-content-xxl-start</li>
+  <li>.align-content-xxl-end</li>
+  <li>.align-content-xxl-center</li>
+  <li>.align-content-xxl-between</li>
+  <li>.align-content-xxl-around</li>
+  <li>.align-content-xxl-stretch</li>
+</ul>
+
+<h3>media-object</h3>
+
+<p>Looking to replicate the media object component from Bootstrap 4? Recreate it in no time with a few flex utilities that 
+  allow even more flexibility and customization than before.</p>
+
+<!--example of code-->
+<div class="p-3 m-0 border-0 bd-example m-0 border-0">
+<div class="d-flex">
+  <div class="flex-shrink-0">
+    <img width="200px" src="../assest/slider img.jpg" alt="browser not supported">
+  </div>
+  <div class="flex-grow-1 ms-3">
+    This is some content from a media component. You can replace this with any content and adjust it as needed.
+  </div>
+</div>
+</div>
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0">
+<div class="d-flex align-items-center">
+  <div class="flex-shrink-0">
+    <img width="200px" src="../assest/slider img.jpg.jpg" alt="browser not supported">
+  </div>
+  <div class="flex-grow-1 ms-3">
+    This is some content from a media component. You can replace this with any content and adjust it as needed.
+  </div>
+</div>
+</div>
+
+<h1 class="text-center">float</h1>
+
+<p>Toggle floats on any element, across any breakpoint, using our responsive float utilities.</p>
+
+<h3>overview</h3>
+
+<p>These utility classes float an element to the left or right, or disable floating, based on the current viewport size using
+   the CSS float property. !important is included to avoid specificity issues. These use the same viewport breakpoints as our
+    grid system. Please be aware float utilities have no effect on flex items.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0">
+  <div class="float-start">Float start on all viewport sizes</div><br>
+  <div class="float-end">Float end on all viewport sizes</div><br>
+  <div class="float-none">Don't float on all viewport sizes</div>
+</div>
+<!--end code example-->
+
+<p>Use the clearfix helper on a parent element to clear floats.</p>
+
+<h3>responsive</h3>
+
+<p>Responsive variations also exist for each float value.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0">
+  <div class="float-sm-end">Float end on viewports sized SM (small) or wider</div><br>
+<div class="float-md-end">Float end on viewports sized MD (medium) or wider</div><br>
+<div class="float-lg-end">Float end on viewports sized LG (large) or wider</div><br>
+<div class="float-xl-end">Float end on viewports sized XL (extra large) or wider</div><br>
+<div class="float-xxl-end">Float end on viewports sized XXL (extra extra large) or wider</div><br>
+</div>
+<!--end of code-->
+
+<p>Here are all the support classes:</p>
+
+<ul><li>  .float-start</li>
+  <li>.float-end</li>
+  <li>.float-none</li>
+  <li>.float-sm-start</li>
+  <li>.float-sm-end</li>
+  <li>.float-sm-none</li>
+  <li>.float-md-start</li>
+  <li>.float-md-end</li>
+  <li>.float-md-none</li>
+  <li>.float-lg-start</li>
+  <li>.float-lg-end</li>
+  <li>.float-lg-none</li>
+  <li>.float-xl-start</li>
+  <li>.float-xl-end</li>
+  <li>.float-xl-none</li>
+  <li>.float-xxl-start</li>
+  <li>.float-xxl-end</li>
+  <li>.float-xxl-none</li>
+  </ul>
+
+<h1 class="text-center">interactions</h1>
+
+<p>Utility classes that change how users interact with contents of a website.</p>
+
+<h3>text selection</h3>
+
+<p>Change the way in which the content is selected when the user interacts with it.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0">
+  <p class="user-select-all">This paragraph will be entirely selected when clicked by the user.</p>
+    <p class="user-select-auto">This paragraph has default select behavior.</p>
+    <p class="user-select-none">This paragraph will not be selectable when clicked by the user.</p>
+</div>
+<!--end code example-->
+
+<h3>pointer event</h3>
+
+<p>Bootstrap provides .pe-none and .pe-auto classes to prevent or add element interactions.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 text-bg-dark">
+  <p><a href="#" class="pe-none" tabindex="-1" aria-disabled="true">This link</a> can not be clicked.</p>
+
+<p><a href="#" class="pe-auto">This link</a> can be clicked (this is default behavior).</p>
+
+<p class="pe-none"><a href="#" tabindex="-1" aria-disabled="true">This link</a> can not be clicked because the
+   <code>pointer-events</code> property is inherited from its parent. However, <a href="#" class="pe-auto">this link</a>
+    has a <code>pe-auto</code> class and can be clicked.</p>
+</div>
+
+<p class="user-select-none">The .pe-none class (and the pointer-events CSS property it sets) only prevents interactions with a pointer 
+  (mouse, stylus, touch). Links and controls with .pe-none are, by default, still focusable and actionable for keyboard users.
+   To ensure that they are completely neutralized even for keyboard users, you may need to add further attributes such as
+    tabindex="-1" (to prevent them from receiving keyboard focus) and aria-disabled="true" (to convey the fact they are
+     effectively disabled to assistive technologies), and possibly use JavaScript to completely prevent them from being
+      actionable.</p>
+
+<p>If possible, the simpler solution is:</p>
+
+<ul>
+  <li>For form controls, add the disabled HTML attribute.</li>
+  <li>For links, remove the href attribute, making it a non-interactive anchor or placeholder link.</li>
+</ul>
+
+<h1 class="text-center">link</h1>
+
+<p>Link utilities are used to stylize your anchors to adjust their color, opacity, underline offset, underline color, and more.</p>
+
+<h3>link opacity</h3>
+
+<p>Change the alpha opacity of the link rgba() color value with utilities. Please be aware that changes to a color’s opacity 
+  can lead to links with insufficient contrast.</p>
+
+<!--example of code-->
+
+<div class="p-3 border-0 m-0 text-bg-dark bd-example">
+  <p><a class="link-opacity-10" href="#">Link opacity 10</a></p>
+<p><a class="link-opacity-25" href="#">Link opacity 25</a></p>
+<p><a class="link-opacity-50" href="#">Link opacity 50</a></p>
+<p><a class="link-opacity-75" href="#">Link opacity 75</a></p>
+<p><a class="link-opacity-100" href="#">Link opacity 100</a></p>
+</div>
+<!--end of code-->
+
+<p>You can even change the opacity level on hover.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 text-bg-dark">
+  <p><a class="link-opacity-10-hover" href="#">Link hover opacity 10</a></p>
+<p><a class="link-opacity-25-hover" href="#">Link hover opacity 25</a></p>
+<p><a class="link-opacity-50-hover" href="#">Link hover opacity 50</a></p>
+<p><a class="link-opacity-75-hover" href="#">Link hover opacity 75</a></p>
+<p><a class="link-opacity-100-hover" href="#">Link hover opacity 100</a></p>
+</div>
+<!--end code example-->
+
+<h2>link underline</h2>
+
+<h3>underline color</h3>
+
+<p>Change the underline’s color independent of the link text color.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 text-bg-dark bd-examle">
+  <p><a href="#" class="link-underline-primary">Primary underline</a></p>
+<p><a href="#" class="link-underline-secondary">Secondary underline</a></p>
+<p><a href="#" class="link-underline-success">Success underline</a></p>
+<p><a href="#" class="link-underline-danger">Danger underline</a></p>
+<p><a href="#" class="link-underline-warning">Warning underline</a></p>
+<p><a href="#" class="link-underline-info">Info underline</a></p>
+<p><a href="#" class="link-underline-light">Light underline</a></p>
+<p><a href="#" class="link-underline-dark">Dark underline</a></p>
+</div>
+<!--end of code-->
+
+<h3>underline offset</h3>
+
+<p>Change the underline’s distance from your text. Offset is set in em units to automatically scale with the element’s
+   current font-size.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example text-bg-dark">
+  <p><a href="#">Default link</a></p>
+<p><a class="link-offset-1" href="#">Offset 1 link</a></p>
+<p><a class="link-offset-2" href="#">Offset 2 link</a></p>
+<p><a class="link-offset-3" href="#">Offset 3 link</a></p>
+</div>
+<!--end of code-->
+
+<h3>underline opacity</h3>
+
+<p>Change the underline’s opacity. Requires adding .link-underline to first set an rgba() color we use to then modify the
+   alpha opacity.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example text-bg-dark">
+<p><a class="link-offset-2 link-underline link-underline-opacity-0" href="#">Underline opacity 0</a></p>
+<p><a class="link-offset-2 link-underline link-underline-opacity-10" href="#">Underline opacity 10</a></p>
+<p><a class="link-offset-2 link-underline link-underline-opacity-25" href="#">Underline opacity 25</a></p>
+<p><a class="link-offset-2 link-underline link-underline-opacity-50" href="#">Underline opacity 50</a></p>
+<p><a class="link-offset-2 link-underline link-underline-opacity-75" href="#">Underline opacity 75</a></p>
+<p><a class="link-offset-2 link-underline link-underline-opacity-100" href="#">Underline opacity 100</a></p>
+</div>
+<!--end of example-->
+
+<h3>hover variants</h3>
+
+<p>Just like the .link-opacity-*-hover utilities, .link-offset and .link-underline-opacity utilities include :hover variants
+   by default. Mix and match to create unique link styles.</p>
+
+<!--example of code-->
+<div class="p-3 text-bg-dark">
+<a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">
+  Underline opacity 0
+</a>
+</div>
+
+<h3>colored links</h3>
+
+<p>Colored link helpers have been updated to pair with our link utilities. Use the new utilities to modify the link opacity,
+   underline opacity, and underline offset.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example text-bg-dark">
+  <p><a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Primary link</a></p>
+<p><a href="#" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Secondary link</a></p>
+<p><a href="#" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Success link</a></p>
+<p><a href="#" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Danger link</a></p>
+<p><a href="#" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Warning link</a></p>
+<p><a href="#" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Info link</a></p>
+<p><a href="#" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Light link</a></p>
+<p><a href="#" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Dark link</a></p>
+<p><a href="#" class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover">Emphasis link</a></p>
+</div>
+<!--end of code example-->
+
+<p class="user-select-none p-3 rounded text-bg-primary bg-gradient col-md-8 mx-auto"><strong> Accessibility tip:</strong>
+   Using color to add meaning only provides a visual indication, which will not be conveyed to users of
+   assistive technologies like screen readers. Please ensure the meaning is obvious from the content itself (e.g., the visible
+    text with a sufficient color contrast) or is included through alternative means, such as additional text hidden with the 
+    .visually-hidden class.</p>
+
+<h1 class="text-center">object-fit</h1>
+
+<p>Use the object fit utilities to modify how the content of a replaced element, such as an &lt;img&gt; or &lt;video&gt;, 
+  should be resized to fit its container.</p>
+
+<h3>how it works</h3>
+
+<p>Change the value of the object-fit property with our responsive object-fit utility classes. This property tells 
+  the content to fill the parent container in a variety of ways, such as preserving the aspect ratio or stretching
+   to take up as much space as possible.
+<br><br>
+  Classes for the value of object-fit are named using the format .object-fit-{value}. Choose from the following values:</p>
+
+<ul>
+<li> contain</li>
+<li>cover</li>
+<li>fill</li>
+<li>scale (for scale-down)</li>
+<li>none</li></ul>
+
+<h4>examples</h4>
+
+<p>Add the object-fit-{value} class to the replaced element:</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 d-flex overflow-auto">
+  <img width="200px" src="../assest/slider img 3 .jpg.jpg" class="object-fit-contain border rounded" alt="...">
+<img width="200px" src="../assest/slider img.jpg" class="object-fit-cover border rounded" alt="...">
+<img width="200px" src="../assest/slider img.jpg.jpg" class="object-fit-fill border rounded" alt="...">
+<img width="200px" src="../assest/airpodes1.jpg" class="object-fit-scale border rounded" alt="...">
+<img width="200px" src="../assest/laptop3.jpg" class="object-fit-none border rounded" alt="...">
+</div>
+<!--end of code example-->
+
+<h3>responsive</h3>
+
+<p>Responsive variations also exist for each object-fit value using the format .object-fit-{breakpoint}-{value}, for the
+   following breakpoint abbreviations: sm, md, lg, xl, and xxl. Classes can be combined for various effects as you need.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 d-flex overflow-auto">
+  <img width="200px" src="../assest/laptop1.jpg" class="object-fit-sm-contain border rounded" alt="...">
+<img width="200px" src="../assest/laptop2.jpg" class="object-fit-md-contain border rounded" alt="...">
+<img width="200px" src="../assest/cellphone1.jpg" class="object-fit-lg-contain border rounded" alt="...">
+<img width="200px" src="../assest/cellphone3.jpg" class="object-fit-xl-contain border rounded" alt="...">
+<img width="200px" src="../assest/airpods3.jpg" class="object-fit-xxl-contain border rounded" alt="...">
+</div>
+<!--end of code example-->
+
+<h3>video</h3>
+
+<p>The .object-fit-{value} and responsive .object-fit-{breakpoint}-{value} utilities also work on &lt;video&gt; elements.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 d-flex overflow-auto">
+  <video width="480px" src="../../../Bootstrap Tutorials/lec 01.mp4" class="object-fit-contain" controls autoplay></video>
+<video width="480px" src="../../../Bootstrap Tutorials/lec 02.mp4" class="object-fit-cover" controls autoplay></video>
+<video width="480px" src="../../../Bootstrap Tutorials/lec 03.mp4" class="object-fit-fill" controls autoplay></video>
+<video width="480px" src="../../../Bootstrap Tutorials/lec 04.mp4" class="object-fit-scale" controls autoplay></video>
+<video width="480px" src="../../../Bootstrap Tutorials/lec 05.mp4" class="object-fit-none" controls autoplay></video>
+</div>
+<!--end of code example-->
+
+<h1 class="text-center">opacity</h1>
+
+<p> <strong>Control the opacity of elements.</strong>
+<br><br>
+  The opacity property sets the opacity level for an element. The opacity level describes the transparency level, where 1 is
+   not transparent at all, .5 is 50% visible, and 0 is completely transparent.
+  
+  Set the opacity of an element using .opacity-{value} utilities.</p>
+
+<!--example of code-->
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 d-flex overflow-auto text-bg-dark">
+<div class="opacity-100"><button>100</button></div>
+<div class="opacity-75"><button>75</button></div>
+<div class="opacity-50"><button>50</button></div>
+<div class="opacity-25"><button>25</button></div>
+<div class="opacity-0"><button>0</button></div>
+</div>
+<!--end of example code-->
+
+<h1 class="text-center">overflow</h1>
+
+<p>Use these shorthand utilities for quickly configuring how content overflows an element.</p>
+
+<h3>overview</h3>
+
+<p>Adjust the overflow property on the fly with four default values and classes. These classes are not responsive by default.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 d-flex example-overflow">
+<div class="overflow-auto">Adjust the overflow property on the fly with four default values and classes. These classes are 
+  not responsive by default.
+  <br>>Use these shorthand utilities for quickly configuring how content overflows an element.
+</div>
+<div class="overflow-hidden">Adjust the overflow property on the fly with four default values and classes. These classes 
+  are not responsive by default. <br>>Use these shorthand utilities for quickly configuring how content overflows an element.</div>
+<div class="overflow-visible">Adjust the overflow property on the fly with four default values and classes. These classes 
+  are not responsive by default. <br>>Use these shorthand utilities for quickly configuring how content overflows an element.</div>
+<div class="overflow-scroll">Adjust the overflow property on the fly with four default values and classes. These classes are
+   not responsive by default. <br>>Use these shorthand utilities for quickly configuring how content overflows an element.</div>
+  </div>
+<!--example end-->
+
+<h3>overflow-x</h3>
+
+<p>>Use these shorthand utilities for quickly configuring how content overflows an element.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 d-flex example-overflow">
+  <div class="overflow-auto">Adjust the overflow property on the fly with four default values and classes. These classes are 
+    not responsive by default.
+    <br>>Use these shorthand utilities for quickly configuring how content overflows an element.
+  </div>
+  <div class="overflow-x-hidden">Adjust the overflow property on the fly with four default values and classes. These classes 
+    are not responsive by default. <br>>Use these shorthand utilities for quickly configuring how content overflows an element.</div>
+  <div class="overflow-x-visible">Adjust the overflow property on the fly with four default values and classes. These classes 
+    are not responsive by default. <br>>Use these shorthand utilities for quickly configuring how content overflows an element.</div>
+  <div class="overflow-x-scroll">Adjust the overflow property on the fly with four default values and classes. These classes are
+     not responsive by default. <br>>Use these shorthand utilities for quickly configuring how content overflows an element.</div>
+    </div>
+<!--end of code-->
+
+<h3>overflow-y</h3>
+
+<p>Adjust the overflow-y property to affect the overflow of content vertically.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 d-flex example-overflow">
+  <div class="overflow-y-auto">Adjust the overflow property on the fly with four default values and classes. These classes are 
+    not responsive by default.
+    <br>>Use these shorthand utilities for quickly configuring how content overflows an element.
+  </div>
+  <div class="overflow-y-hidden">Adjust the overflow property on the fly with four default values and classes. These classes 
+    are not responsive by default. <br>>Use these shorthand utilities for quickly configuring how content overflows an element.</div>
+  <div class="overflow-y-visible">Adjust the overflow property on the fly with four default values and classes. These classes 
+    are not responsive by default. <br>>Use these shorthand utilities for quickly configuring how content overflows an element.</div>
+  <div class="overflow-y-scroll">Adjust the overflow property on the fly with four default values and classes. These classes are
+     not responsive by default. <br>>Use these shorthand utilities for quickly configuring how content overflows an element.</div>
+    </div>
+<!--end of code-->
+
+<h1 class="text-center">position</h1>
+
+<p>Use these shorthand utilities for quickly configuring the position of an element.</p>
+
+<h3>position values</h3>
+
+<p>Quick positioning classes are available, though they are not responsive.</p>
+<br><br><br>
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-position-utils">
+<div class="position-static">Adjust the overflow property on</div>
+<div class="position-relative">Adjust the overflow property </div>
+<div class="position-absolute">Adjust the overflow property default.</div>
+<div class="position-fixed">Adjust the overflow property on default.</div>
+<div class="position-sticky">Adjust the overflow property on the fly .</div>
+</div>
+<!--end of code-->
+<br><br><br><br>
+<h3>arrange elements</h3>
+
+<p>Arrange elements easily with the edge positioning utilities. The format is {property}-{position}.
+
+  Where property is one of:</p>
+
+<ul><li>top - for the vertical top position</li>
+  <li> start - for the horizontal left position (in LTR)</li>
+  <li>  bottom - for the vertical bottom position</li>
+  <li>  end - for the horizontal right position (in LTR)</li></ul>
+
+  <p>Where position is one of:</p>
+
+<ul><li>0 - for 0 edge position</li>
+  <li>50 - for 50% edge position</li>
+  <li>100 - for 100% edge position</li>
+</ul>
+
+<p>(You can add more position values by adding entries to the $position-values Sass map variable.)</p>
+
+<!--example of code-->
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-position-utils">
+<div class="position-relative">
+  <div class="position-absolute top-0 start-0"></div>
+  <div class="position-absolute top-0 end-0"></div>
+  <div class="position-absolute top-50 start-50"></div>
+  <div class="position-absolute bottom-50 end-50"></div>
+  <div class="position-absolute bottom-0 start-0"></div>
+  <div class="position-absolute bottom-0 end-0"></div>
+</div></div>
+<!--end of example code-->
+
+<h3>centered elements</h3>
+
+<p>In addition, you can also center the elements with the transform utility class .translate-middle.
+
+  This class applies the transformations translateX(-50%) and translateY(-50%) to the element which, in combination 
+  with the edge positioning utilities, allows you to absolute center an element.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-position-utils">
+<div class="position-relative">
+  <div class="position-absolute top-0 start-0 translate-middle"></div>
+  <div class="position-absolute top-0 start-50 translate-middle"></div>
+  <div class="position-absolute top-0 start-100 translate-middle"></div>
+  <div class="position-absolute top-50 start-0 translate-middle"></div>
+  <div class="position-absolute top-50 start-50 translate-middle"></div>
+  <div class="position-absolute top-50 start-100 translate-middle"></div>
+  <div class="position-absolute top-100 start-0 translate-middle"></div>
+  <div class="position-absolute top-100 start-50 translate-middle"></div>
+  <div class="position-absolute top-100 start-100 translate-middle"></div>
+</div>
+</div>
+
+<!--end code-->
+
+<p>By adding .translate-middle-x or .translate-middle-y classes, elements can be positioned only in horizontal or vertical
+   direction.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-position-utils">
+<div class="position-relative">
+  <div class="position-absolute top-0 start-0"></div>
+  <div class="position-absolute top-0 start-50 translate-middle-x"></div>
+  <div class="position-absolute top-0 end-0"></div>
+  <div class="position-absolute top-50 start-0 translate-middle-y"></div>
+  <div class="position-absolute top-50 start-50 translate-middle"></div>
+  <div class="position-absolute top-50 end-0 translate-middle-y"></div>
+  <div class="position-absolute bottom-0 start-0"></div>
+  <div class="position-absolute bottom-0 start-50 translate-middle-x"></div>
+  <div class="position-absolute bottom-0 end-0"></div>
+</div>
+</div>
+<!--end of code-->
+
+<h3>examples</h3>
+
+<p>Here are some real life examples of these classes:</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0
+ bd-example-position-examples d-flex justify-content-around
+  align-items-center">
+  <button type="button" class="btn btn-primary position-relative">
+    Mails <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-secondary">+99 
+      <span class="visually-hidden">unread messages</span></span>
+  </button>
+  
+  <div class="position-relative py-2 px-4 text-bg-secondary border border-secondary rounded-pill">
+    Marker <svg width="1em" height="1em" viewBox="0 0 16 16" class="position-absolute top-100 start-50
+     translate-middle mt-1" fill="var(--bs-secondary)" xmlns="http://www.w3.org/2000/svg">
+     <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z">
+
+     </path></svg>
+  </div>
+  
+  <button type="button" class="btn btn-primary position-relative">
+    Alerts <span class="position-absolute top-0 start-100 translate-middle badge border border-light
+     rounded-circle bg-danger p-2"><span class="visually-hidden">unread messages</span></span>
+  </button>
+</div>
+<!--end of code-->
+
+<p>You can use these classes with existing components to create new ones. Remember that you can extend its functionality by
+   adding entries to the $position-values variable.</p>
+
+<!--example of code-->
+   
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-position-examples">
+  <div class="position-relative m-4">
+    <div class="progress" role="progressbar" aria-label="Progress" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="height: 1px;">
+      <div class="progress-bar" style="width: 50%"></div>
+    </div>
+    <button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-success rounded-pill" style="width: 2rem; height:2rem;">1</button>
+    <button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-success rounded-pill" style="width: 2rem; height:2rem;">2</button>
+    <button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill" style="width: 2rem; height:2rem;">3</button>
+  </div>
+</div>
+<!--end of code-->
+
+<h1 class="text-center">shadows</h1>
+
+<p>Add or remove shadows to elements with box-shadow utilities. <br><br>
+  While shadows on components are disabled by default in Bootstrap and can be enabled via $enable-shadows, you can also 
+  quickly add or remove a shadow with our box-shadow utility classes. Includes support for .shadow-none and three default 
+  sizes (which have associated variables to match).
+</p>
+
+<!--example of code-->
+
+<div ></div>
+<div class="p-3 m-0 border-0 bd-example m-0 border-0">
+      
+  <div class="shadow-none p-3 mb-5 rounded">No shadow</div>
+  <div class="shadow-sm p-3 mb-5 rounded">Small shadow</div>
+  <div class="shadow p-3 mb-5  rounded">Regular shadow</div>
+  <div class="shadow-lg p-3 mb-5 rounded">Larger shadow</div>
+</div>
+
+<h1 class="text-center">sizing</h1>
+
+<p>Easily make an element as wide or as tall with our width and height utilities.</p>
+
+<h3>relative to the parent</h3>
+
+<p>Width and height utilities are generated from the utility API in _utilities.scss. Includes support for 25%, 50%, 75%, 100%,
+   and auto by default. Modify those values as you need to generate different utilities here.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+  <div class="w-25 p-3">Width 25%</div>
+    <div class="w-50 p-3">Width 50%</div>
+    <div class="w-75 p-3">Width 75%</div>
+    <div class="w-100 p-3">Width 100%</div>
+    <div class="w-auto p-3">Width auto</div>
+</div>
+<br>
+<!--2nd example inline-block-->
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+<div style="height: 100px;">
+  <div class="h-25 d-inline-block" style="width: 120px;">Height 25%</div>
+  <div class="h-50 d-inline-block" style="width: 120px;">Height 50%</div>
+  <div class="h-75 d-inline-block" style="width: 120px;">Height 75%</div>
+  <div class="h-100 d-inline-block" style="width: 120px;">Height 100%</div>
+  <div class="h-auto d-inline-block" style="width: 120px;">Height auto</div>
+</div>
+</div>
+<!--end code example-->
+
+<p>You can also use max-width: 100%; and max-height: 100%; utilities as needed.</p>
+
+<!--example of code-->
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+<div style="width: 50%; height: 100px;">
+  <div class="mw-100" style="width: 200%;">Max-width 100%</div>
+</div>
+</div>
+<br>
+<!--2nd example-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+<div style="height: 100px;">
+  <div class="mh-100" style="width: 100px; height: 200px;">Max-height 100%</div>
+</div>
+</div>
+<!--end of code example-->
+
+<h3>relative to viewport</h3>
+
+<p>You can also use utilities to set the width and height relative to the viewport.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-flex">
+  <div class="min-vw-50">Min-width 50vw</div>
+<div class="min-vh-50">Min-height 50vh</div>
+<div class="vw-50">Width 50vw</div>
+<div class="vh-50">Height 50vh</div>
+</div>
+<!--end of code-->
+
+<h1 class="text-center">spacing</h1>
+
+<p>Bootstrap includes a wide range of shorthand responsive margin, padding, and gap utility classes to modify an element’s 
+  appearance.</p>
+
+  <h3>margin and padding</h3>
+
+<p>Assign responsive-friendly margin or padding values to an element or a subset of its sides with shorthand classes. 
+  Includes support for individual properties, all properties, and vertical and horizontal properties. Classes are built
+   from a default Sass map ranging from .25rem to 3rem.</p>
+
+<p class="text-bg-primary bg-gradient p-3 mx-auto rounded col-md-8">Using the CSS Grid layout module? Consider using the gap utility instead.</p>
+
+<h3>notation</h3>
+
+<p> Spacing utilities that apply to all breakpoints, from xs to xxl, have no breakpoint abbreviation in them. This is because
+   those classes are applied from min-width: 0 and up, and thus are not bound by a media query. The remaining breakpoints,
+    however, do include a breakpoint abbreviation.</p>
+
+<p> The classes are named using the format {property}{sides}-{size} for xs and {property}{sides}-{breakpoint}-{size} for sm,
+   md, lg, xl, and xxl.</p>
+ 
+<p>  Where property is one of:</p>
+
+<ul><li>m - for classes that set margin</li>
+  <li>p - for classes that set padding</li></ul>
+
+<p>Where sides is one of:</p>
+
+<ul>
+  <li>t - for classes that set margin-top or padding-top</li>
+  <li>b - for classes that set margin-bottom or padding-bottom</li>
+  <li>s - (start) for classes that set margin-left or padding-left in LTR, margin-right or padding-right in RTL</li>
+  <li>e - (end) for classes that set margin-right or padding-right in LTR, margin-left or padding-left in RTL</li>
+  <li>x - for classes that set both *-left and *-right</li>
+  <li>y - for classes that set both *-top and *-bottom</li>
+  <li>blank - for classes that set a margin or padding on all 4 sides of the element</li>
+</ul>
+
+<p>Where size is one of:</p>
+
+<ul>
+  <li>0 - for classes that eliminate the margin or padding by setting it to 0</li>
+  <li>1 - (by default) for classes that set the margin or padding to $spacer * .25</li>
+  <li>2 - (by default) for classes that set the margin or padding to $spacer * .5</li>
+  <li>3 - (by default) for classes that set the margin or padding to $spacer</li>
+  <li>4 - (by default) for classes that set the margin or padding to $spacer * 1.5</li>
+  <li>5 - (by default) for classes that set the margin or padding to $spacer * 3</li>
+  <li>auto - for classes that set the margin to auto</li>
+ </ul>
+ 
+<p>(You can add more sizes by adding entries to the $spacers Sass map variable.)</p>
+
+<h3>example</h3>
+
+<p>Here are some representative examples of these classes:</p>
+
+<!--example of code-->
+
+<p class="bg-gradient mx-auto col-md-6 p-3">.mt-0 {
+  margin-top: 0 !important;
+}
+<br>
+.ms-1 {
+  margin-left: ($spacer * .25) !important;
+}
+<br>
+.px-2 {
+  padding-left: ($spacer * .5) !important;
+  padding-right: ($spacer * .5) !important;
+}
+<br>
+.p-3 {
+  padding: $spacer !important;
+}</p>
+
+<h3>horizontal centering</h3>
+
+<p>Additionally, Bootstrap also includes an .mx-auto class for horizontally centering fixed-width block level content—that is,
+   content that has display: block and a width set—by setting the horizontal margins to auto.</p>
+
+   <!--example of code-->
+<div class="bg-gradient mx-auto col-sm-6 col-md-3 p-3">
+   <div class="mx-auto p-2" style="width: 200px;">
+    Centered element
+  </div>
+</div>
+
+<h3>navigation margin</h3>
+
+<p>In CSS, margin properties can utilize negative values (padding cannot). These negative margins are disabled by default,
+   but can be enabled in Sass by setting $enable-negative-margins: true.
+
+  The syntax is nearly the same as the default, positive margin utilities, but with the addition of n before the requested size.
+   Here’s an example class that’s the opposite of .mt-1:</p>
+
+<p class="bg-gradient p-3 rounded">.mt-n1 {
+  margin-top: -0.25rem !important;
+}</p>
+
+<h3>gap</h3>
+
+<p>When using display: grid or display: flex, you can make use of gap utilities on the parent element. This can save on having
+   to add margin utilities to individual children of a grid or flex container. Gap utilities are responsive by default,
+    and are generated via our utilities API, based on the $spacers Sass map.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-cssgrid">
+  <div class="grid grid-gap-3 row-gap-3">
+    <div class="p-2 g-col-8">Grid item 1</div>
+    <div class="p-2 g-col-4">Grid item 2</div>
+    <div class="p-2 g-col-4">Grid item 3</div>
+    <div class="p-2 g-col-8">Grid item 4</div>
+  </div>
+</div>
+<!--end of code example-->
+
+<p>Support includes responsive options for all of Bootstrap’s grid breakpoints, as well as six sizes from the $spacers map (0–5).
+   There is no .gap-auto utility class as it’s effectively the same as .gap-0.</p>
+
+   <h3>row-gap</h3>
+
+<p>row-gap sets the vertical space between children items in the specified container.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-cssgrid">
+<div class="grid gap-1 row-gap-3">
+  <div class="p-2 g-col-4">Grid item 1</div>
+  <div class="p-2 g-col-8">Grid item 2</div>
+  <div class="p-2 g-col-8">Grid item 3</div>
+  <div class="p-2 g-col-4">Grid item 4</div>
+</div>
+</div>
+<!--end of code example-->
+
+<h3>column-gap</h3>
+
+<p>column-gap sets the horizontal space between children items in the specified container.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-cssgrid">
+  <div class="grid gap-0 column-gap-3">
+    <div class="p-2 g-col-6">Grid item 1</div>
+    <div class="p-2 g-col-6">Grid item 2</div>
+    <div class="p-2 g-col-6">Grid item 3</div>
+    <div class="p-2 g-col-6">Grid item 4</div>
+  </div>
+</div>
+<!--end of code-->
+
+<h1 class="text-center">text</h1>
+
+<p>Documentation and examples for common text utilities to control alignment, wrapping, weight, and more.</p>
+
+<h3>text alignment</h3>
+
+<p>Easily realign text to components with text alignment classes. For start, end, and center alignment, responsive classes are
+   available that use the same viewport width breakpoints as the grid system.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 text-bg-dark">
+  <p class="text-start">Start aligned text on all viewport sizes.</p>
+  <p class="text-center">Center aligned text on all viewport sizes.</p>
+  <p class="text-end">End aligned text on all viewport sizes.</p>
+  
+  <p class="text-sm-end">End aligned text on viewports sized SM (small) or wider.</p>
+  <p class="text-md-end">End aligned text on viewports sized MD (medium) or wider.</p>
+  <p class="text-lg-end">End aligned text on viewports sized LG (large) or wider.</p>
+  <p class="text-xl-end">End aligned text on viewports sized XL (extra large) or wider.</p>
+  <p class="text-xxl-end">End aligned text on viewports sized XXL (extra extra large) or wider.</p>
+</div>
+<!--end of code-->
+
+<p>Note that we don’t provide utility classes for justified text. While, aesthetically, justified text might look more appealing,
+   it does make word-spacing more random and therefore harder to read.</p>
+
+<h3>text wrapping and overflow</h3>
+
+<p>Wrap text with a .text-wrap class.</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 text-bg-dark">
+<div class="badge text-bg-primary text-wrap" style="width: 6rem;">
+  This text should wrap.
+</div>
+</div>
+<!--end of code-->
+
+<p>Prevent text from wrapping with a .text-nowrap class.</p>
+
+<!--example of code-->
+<div  class="p-3 m-0 border-0 bd-example m-0 border-0">
+  <div class="text-nowrap bg-body-primary border" style="width: 8rem;">
+    This text should overflow the parent.
+  </div>
+</div>
+<!--end of code-->
+
+<h3>work break</h3>
+
+<p>Prevent long strings of text from breaking your components’ layout by using .text-break to set word-wrap: break-word and
+   word-break: break-word. We use word-wrap instead of the more common overflow-wrap for wider browser support, and add the
+    deprecated word-break: break-word to avoid issues with flex containers.</p>
+
+<!--example of code-->
+
+<p class="text-break bg-gradient 
+p-3">mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</p>
+<!--end code-->
+
+<p><strong> Note </strong>that breaking words isn’t possible in Arabic, which is the most used RTL language. Therefore .text-break
+   is removed from
+   our RTL compiled CSS.</p>
+
+<h3>text-transform</h3>
+
+<p>Transform text in components with text capitalization classes.</p>
+
+<!--example of code-->
+<div class="p-3 bg-gradient">
+  <p class="text-lowercase">Lowercased text.</p>
+<p class="text-uppercase">Uppercased text.</p>
+<p class="text-capitalize">CapiTaliZed text.</p>
+</div>
+<!--end of code-->
+
+<p>Note how .text-capitalize only changes the first letter of each word, leaving the case of any other letters unaffected.</p>
+
+<h3>font size</h3>
+
+<p>Quickly change the font-size of text. While our heading classes (e.g., .h1–.h6) apply font-size, font-weight, and line-height,
+   these utilities only apply font-size. Sizing for these utilities matches HTML’s heading elements, so as the number increases,
+    their size decreases.</p>
+
+<!--example of code-->
+
+<div class="p-3 bg-gradient">
+  <p class="fs-1">.fs-1 text</p>
+<p class="fs-2">.fs-2 text</p>
+<p class="fs-3">.fs-3 text</p>
+<p class="fs-4">.fs-4 text</p>
+<p class="fs-5">.fs-5 text</p>
+<p class="fs-6">.fs-6 text</p>
+</div>
+<!--end of code-->
+
+<p>Customize your available font-sizes by modifying the $font-sizes Sass map.</p>
+
+<h3>font weight and italics</h3>
+
+<p>Quickly change the font-weight or font-style of text with these utilities. font-style utilities are abbreviated as
+   .fst-* and font-weight utilities are abbreviated as .fw-*.</p>
+
+<!--example of code-->
+
+<div class="bg-gradient p-3">
+  <p class="fw-bold">Bold text.</p>
+<p class="fw-bolder">Bolder weight text (relative to the parent element).</p>
+<p class="fw-semibold">Semibold weight text.</p>
+<p class="fw-medium">Medium weight text.</p>
+<p class="fw-normal">Normal weight text.</p>
+<p class="fw-light">Light weight text.</p>
+<p class="fw-lighter">Lighter weight text (relative to the parent element).</p>
+<p class="fst-italic">Italic text.</p>
+<p class="fst-normal">Text with normal font style</p>
+</div>
+
+<h3>line height</h3>
+
+<p>Change the line height with .lh-* utilities.</p>
+
+<div class="bg-gradient p-3">
+   <p class="lh-1">  This is a long paragraph written to show how the line-height of an element is affected by our utilities. Classes are applied
+   to the element itself or sometimes the parent element. These classes can be customized as needed with our utility API.
+</p>
+ <p class="lh-sm"> This is a long paragraph written to show how the line-height of an element is affected by our utilities. Classes are applied
+   to the element itself or sometimes the parent element. These classes can be customized as needed with our utility API.
+</p>
+ <p class="lh-base"> This is a long paragraph written to show how the line-height of an element is affected by our utilities. Classes are applied
+   to the element itself or sometimes the parent element. These classes can be customized as needed with our utility API.
+</p>
+ <p class="lh-lg"> This is a long paragraph written to show how the line-height of an element is affected by our utilities. Classes are applied
+   to the element itself or sometimes the parent element. These classes can be customized as needed with our utility API.</p>
+</p></div>
+
+<h3>monospace</h3>
+
+<p>Change a selection to our monospace font stack with .font-monospace.</p>
+
+<!--example of code-->
+
+<p class="bg-gradient p-3 font-monospace">This is in monospace</p>
+
+<h3>reset color</h3>
+
+<p>Reset a text or link’s color with .text-reset, so that it inherits the color from its parent.</p>
+
+<p class="p-3 bg-gradient text-body-secondary">
+  Secondary body text with a <a href="#" class="text-reset">reset link</a>.
+</p>
+
+<h3>text-dacoration</h3>
+
+<p>Decorate text in components with text decoration classes.</p>
+
+<!--example of code-->
+<div class="text-bg-dark p-3">
+<p class="text-decoration-underline">This text has a line underneath it.</p>
+<p class="text-decoration-line-through">This text has a line going through it.</p>
+<a href="#" class="text-decoration-none">This link has its text decoration removed</a>
+</div>
+
+<h1 class="text-center">vertical align</h1>
+
+<p>Easily change the vertical alignment of inline, inline-block, inline-table, and table cell elements.</p>
+
+<p>Change the alignment of elements with the vertical-alignment utilities. Please note that vertical-align only affects inline,
+   inline-block, inline-table, and table cell elements.</p>
+
+<p>Choose from .align-baseline, .align-top, .align-middle, .align-bottom, .align-text-bottom, and .align-text-top as needed.</p>
+
+<p>To vertically center non-inline content (like &lt;div&gt;s and more), use our flex box utilities.</p>
+
+<p>With inline elements:</p>
+
+  
+ <!-- Example Code -->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0">    
+        
+ <span class="align-baseline">baseline</span>
+ <span class="align-top">top</span>
+ <span class="align-middle">middle</span>
+ <span class="align-bottom">bottom</span>
+ <span class="align-text-top">text-top</span>
+ <span class="align-text-bottom">text-bottom</span>
+ 
+   </div>
+ <!-- End Example Code -->
+
+<p>With table cells:</p>
+
+<!--example of code-->
+
+<div class="p-3 m-0 border-0 bd-example m-0 border-0">
+  <table style="height: 100px;">
+    <tbody>
+      <tr>
+        <td class="align-baseline">baseline</td>
+        <td class="align-top">top</td>
+        <td class="align-middle">middle</td>
+        <td class="align-bottom">bottom</td>
+        <td class="align-text-top">text-top</td>
+        <td class="align-text-bottom">text-bottom</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+ <!-- End Example Code -->
+
+<h1 class="text-center">visiblity</h1>
+
+<p>Control the visibility of elements, without modifying their display, with visibility utilities.</p>
+
+<p>Set the visibility of elements with our visibility utilities. These utility classes do not modify the display value at all 
+  and do not affect layout – .invisible elements still take up space in the page.</p>
+
+<p class="bg-gradient p-3 rounded col-md-8 mx-auto">Elements with the .invisible class will be hidden both visually and for
+   assistive technology/screen reader users.</p>
+
+<p>Apply .visible or .invisible as needed.</p>
+
+<!--example of code-->
+
+<div class="visible"><p>visible With inline elements:</p></div>
+<div class="invisible"><p>invisible With inline elements:</p></div>
+
+<h1 class="text-center">z-index</h1>
+
+<p>Use our low-level z-index utilities to quickly change the stack level of an element or component</p>
+
+<h4>example</h4>
+
+<p>Use z-index utilities to stack elements on top of one another. Requires a position value other than static, which can be set
+   with custom styles or using our position utilities.</p>
+
+<p class="p-3 col-md-8 mx-auto bg-gradient rounded">We call these “low-level” z-index utilities because of their default values
+   of -1 through 3, which we use for the layout of overlapping components. High-level z-index values are used for overlay
+    components like modals and tooltips.</p>
+
+<!--example of code-->
+<div class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-zindex-levels position-relative">
+
+<div class="z-3 position-absolute p-5 rounded-3"><span>z-3 khan ji 786</span></div>
+<div class="z-2 position-absolute p-5 rounded-3"><span>z-2 development</span></div>
+<div class="z-1 position-absolute p-5 rounded-3"><span>z-1 good morning</span></div>
+<div class="z-0 position-absolute p-5 rounded-3"><span>z-0 yes, today</span></div>
+<div class="z-n1 position-absolute p-5 rounded-3"><span>z-n1 its, good job</span></div>
+</div>
+
+<h3>overlays</h3>
+
+<p>Bootstrap overlay components—dropdown, modal, offcanvas, popover, toast, and tooltip—all have their own z-index values to
+   ensure a usable experience with competing “layers” of an interface.</p>
+
+<p>Read about them in the z-index layout page.</p>
+
+<h3>Component approach </h3>
+
+<p>On some components, we use our low-level z-index values to manage repeating elements that overlap one another (like buttons
+   in a button group or items in a list group).</p>
+
+   <p> Learn about our z-index approach.</p>
+
+</div>
+</body>
+</html>
