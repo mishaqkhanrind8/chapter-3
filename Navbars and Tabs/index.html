@@ -1036,10 +1036,10 @@
     as this would 
     prevent it from being announced as an actual list by assistive technologies.
 
-  Note that navigation bars, even if visually styled as tabs with the .nav-tabs class, should not be given role="tablist",
-   role="tab" or role="tabpanel" attributes. These are only appropriate for dynamic tabbed interfaces, as described in the ARIA 
-   Authoring Practices Guide tabs pattern. See JavaScript behavior for dynamic tabbed interfaces in this section for an example.
-    The aria-current attribute is not necessary on dynamic tabbed interfaces since our JavaScript handles the selected state by
+  Note that navigation bars, even if visually styled as tabs with the .nav-tabs class, should not be given role="tab list",
+   role="tab" or role="tab panel" Attributable panels are only appropriate for dynamic tabbed interfaces, as described in the ARIA 
+   Authoring Practices Guide tabs pattern. Please take a look at JavaScript behavior for dynamic tabbed interfaces in this section for an example.
+    The aria-current attribute is unnecessary on dynamic tabbed interfaces since our JavaScript handles the selected state by
      adding aria-selected="true" on the active tab.</p>
 
 <h4>using dropdowns</h4>
@@ -1071,7 +1071,7 @@
 <h4>pills with dropdowns</h4>
 
 <ul class="nav nav-pills">
-  <li class="nav-item">
+   <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="#">Active</a>
   </li>
   <li class="nav-item dropdown">
